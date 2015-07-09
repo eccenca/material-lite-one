@@ -239,6 +239,12 @@ $progress-main-color: unquote("rgb(#{$color-primary})") !default;
 $progress-secondary-color: unquote("rgba(#{$color-primary-contrast}, 0.7)") !default;
 $progress-fallback-buffer-color: unquote("rgba(#{$color-primary-contrast}, 0.9)") !default;
 
+/* ==========  Badge ========== */
+$badge-color: unquote("rgb(#{$color-white})") !default;
+$badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
+$badge-background: unquote("rgb(#{$color-accent})") !default;
+$badge-background-inverse: unquote("rgba(#{$color-white},0.2)") !default;
+
 /* ==========  List ========== */
 
 $list-container-item-border-color: unquote("rgb(#{$palette-grey-300})") !default;
@@ -264,6 +270,12 @@ $default-dropdown-bg-color: unquote("rgb(#{$color-white})") !default;
 
 $tooltip-text-color: unquote("rgb(#{$color-white})") !default;
 $tooltip-background-color: unquote("rgba(#{$palette-grey-700}, 0.9)") !default;
+
+/* ==========  Data Table ========== */
+$data-table-header-color: unquote("rgba(#000, 0.54)");
+$data-table-divider-color: unquote("rgba(#000, 0.12)");
+$data-table-hover-color: unquote("#eeeeee");
+$data-table-selection-color: unquote("#e0e0e0");
 
 /* ==========  Footer  ========== */
 
@@ -499,10 +511,6 @@ $animation-curve-default: $animation-curve-fast-out-slow-in !default;
 $bar-height: 4px !default;
 
 /* BADGE */
-$badge-color: unquote("rgb(#{$color-white})") !default;
-$badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
-$badge-background: unquote("rgb(#{$color-accent})") !default;
-$badge-background-inverse: unquote("rgba(#{$color-white},0.2)") !default;
 $badge-size : 22px;
 $badge-padding: 2px;
 
@@ -533,12 +541,6 @@ $grid-phone-margin: $grid-desktop-margin !default;
 $grid-cell-default-columns: $grid-phone-columns !default;
 
 /* DATA TABLE */
-
-$data-table-header-color: rgba(#000, 0.54);
-$data-table-divider-color: rgba(#000, 0.12);
-
-$data-table-hover-color: #eeeeee;
-$data-table-selection-color: #e0e0e0;
 
 $data-table-dividers: 1px solid $data-table-divider-color;
 
