@@ -19,9 +19,9 @@
 
 html, body {
 	font-family: $performance_font;
-	font-size: 14px;
+	font-size: $typo-body-base-font-size;
 	font-weight: 400;
-	line-height: 20px;
+	line-height: $typo-body-base-line-height;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -40,43 +40,43 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 
 h1 {
 	@include typo-display-3();
-	margin-top: 24px;
-	margin-bottom: 24px;
+	margin-top: $typo-display-3-margin-top;
+	margin-bottom: $typo-display-3-margin-bottom;
 }
 
 h2 {
 	@include typo-display-2();
-	margin-top: 24px;
-	margin-bottom: 24px;
+	margin-top: $typo-display-2-margin-top;
+	margin-bottom: $typo-display-2-margin-bottom;
 }
 
 h3 {
 	@include typo-display-1();
-	margin-top: 24px;
-	margin-bottom: 24px;
+	margin-top: $typo-display-1-margin-top;
+	margin-bottom: $typo-display-1-margin-bottom;
 }
 
 h4 {
 	@include typo-headline();
-	margin-top: 24px;
-	margin-bottom: 16px;
+	margin-top: $typo-headline-margin-top;
+	margin-bottom: $typo-headline-margin-bottom;
 }
 
 h5 {
 	@include typo-title();
-	margin-top: 24px;
-	margin-bottom: 16px;
+	margin-top: $typo-title-margin-top;
+	margin-bottom: $typo-title-margin-bottom;
 }
 
 h6 {
-	@include typo-subhead();
-	margin-top: 24px;
-	margin-bottom: 16px;
+  @include typo-subhead();
+  margin-top: $typo-subhead-margin-top;
+  margin-bottom: $typo-subhead-margin-bottom;
 }
 
 p {
   @include typo-body-1();
-	margin-bottom: 16px;
+	margin-bottom: $typo-body-1-margin-bottom;
 }
 
 a {

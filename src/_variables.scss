@@ -294,6 +294,63 @@ $footer-underline-color: $footer-color !default;
 $use-material-design-strict: true !default;
 
 @if $use-material-design-strict == true {
+  /* TYPOGRAPHY */
+  $typo-display-4-font-size: 112px;
+  $typo-display-4-line-height: 1;
+
+  $typo-display-3-font-size: 56px;
+  $typo-display-3-line-height: 1.35;
+  $typo-display-3-margin-top: 24px;
+  $typo-display-3-margin-bottom: 24px;
+
+  $typo-display-2-font-size: 45px;
+  $typo-display-2-line-height: 48px;
+  $typo-display-2-margin-top: 24px;
+  $typo-display-2-margin-bottom: 24px;
+
+  $typo-display-1-font-size: 34px;
+  $typo-display-1-line-height: 40px;
+  $typo-display-1-margin-top: 24px;
+  $typo-display-1-margin-bottom: 24px;
+
+  $typo-headline-font-size: 24px;
+  $typo-headline-line-height: 32px;
+  $typo-headline-margin-top: 24px;
+  $typo-headline-margin-bottom: 16px;
+
+  $typo-title-font-size: 20px;
+  $typo-title-line-height: 1;
+  $typo-title-margin-top: 24px;
+  $typo-title-margin-bottom: 16px;
+
+  $typo-subhead-font-size: 16px;
+  $typo-subhead-line-height: 24px;
+  $typo-subhead-margin-top: 24px;
+  $typo-subhead-margin-bottom: 16px;
+
+  $typo-subhead-2-font-size: 16px;
+  $typo-subhead-2-line-height: 28px;
+
+  $typo-body-base-font-size: 14px;
+  $typo-body-base-line-height: 20px;
+
+  $typo-body-1-font-size: 14px;
+  $typo-body-1-line-height: 24px;
+  $typo-body-1-margin-bottom: 16px;
+
+  $typo-caption-font-size: 12px;
+  $typo-caption-line-height: 1;
+
+  $typo-blockquote-font-size: 24px;
+  $typo-blockquote-line-height: 1.35;
+
+  $typo-menu-font-size: 14px;
+  $typo-menu-line-height: 1;
+
+  $typo-button-font-size: 14px;
+  $typo-button-line-height: 1;
+  
+  
   /* TEXTFIELD */
 
   $input-text-font-size: 16px;
