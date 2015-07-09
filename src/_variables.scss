@@ -350,6 +350,13 @@ $use-material-design-strict: true !default;
   $typo-button-font-size: 14px;
   $typo-button-line-height: 1;
   
+  /* LAYOUT */
+  
+  $layout-navigation-link-font-size: 13px;
+  $layout-drawer-navigation-padding-top: 16px;
+  $layout-header-max-height: 1000px;
+  $layout-header-navigation-link-padding-vertical: 24px;
+  $layout-tab-font-size: 14px;
   
   /* TEXTFIELD */
 
@@ -423,8 +430,12 @@ $use-material-design-strict: true !default;
   $layout-header-icon-size: 32px;
   $layout-screen-size-threshold: 850px;
   $layout-header-icon-margin: 24px;
+  $layout-drawer-button-font-size: 26px;
   $layout-drawer-button-mobile-size: 32px;
   $layout-drawer-button-desktop-size: 48px;
+  $layout-drawer-button-desktop-margin-vertical: 10px;
+  $layout-drawer-button-desktop-margin-horizontal: 12px;
+  $layout-drawer-button-threshold-margin: 4px;
 
   $layout-header-mobile-row-height: 56px;
   $layout-mobile-header-height: $layout-header-mobile-row-height;

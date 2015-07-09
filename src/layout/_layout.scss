@@ -29,7 +29,7 @@
   color: $layout-text-color;
   text-decoration: none;
   font-weight: 500;
-  font-size: 13px;
+  font-size: $layout-navigation-link-font-size;
   margin: 0;
 }
 
@@ -97,7 +97,7 @@
     background: $layout-drawer-bg-color;
 
     // Transform offscreen.
-    transform: translateX(-$layout-drawer-width - 10px);
+    transform: translateX(-1.05 * $layout-drawer-width);
     transform-style: preserve-3d;
     will-change: transform;
 
@@ -132,17 +132,17 @@
     & .mdl-navigation {
       flex-direction: column;
       align-items: stretch;
-      padding-top: 16px;
+      padding-top: $layout-drawer-navigation-padding-top;
 
       & .mdl-navigation__link {
       display: block;
       flex-shrink: 0;
-      padding: 16px $layout-header-desktop-indent;
+      padding: $layout-drawer-navigation-padding-top $layout-header-desktop-indent;
       margin: 0;
       color: $layout-drawer-navigation-color;
 
         @media screen and (max-width: $layout-screen-size-threshold) {
-          padding: 16px $layout-header-mobile-indent;
+          padding: $layout-drawer-navigation-padding-top $layout-header-mobile-indent;
         }
 
         &:hover {
@@ -179,10 +179,10 @@
     overflow: hidden;
     text-align: center;
     cursor: pointer;
-    font-size: 26px;
+    font-size: $layout-drawer-button-font-size;
     line-height: $layout-drawer-button-desktop-size + 2;
     font-family: Helvetica, Arial, sans-serif;
-    margin: 10px 12px;
+    margin: $layout-drawer-button-desktop-margin-vertical $layout-drawer-button-desktop-margin-horizontal;
     top: 0;
     left: 0;
     color: $layout-header-text-color;
@@ -195,12 +195,12 @@
       background-color: inherit;
 
       @media screen and (max-width: $layout-screen-size-threshold) {
-        margin: 4px;
+        margin: $layout-drawer-button-threshold-margin;
       }
     }
 
     @media screen and (max-width: $layout-screen-size-threshold) {
-      margin: 4px;
+      margin: $layout-drawer-button-threshold-margin;
       color: rgba(0, 0, 0, 0.5);
     }
 
@@ -224,7 +224,7 @@
     padding: 0;
     border: none;
     min-height: $layout-desktop-header-height;
-    max-height: 1000px;
+    max-height: $layout-header-max-height;
     z-index: 3;
 
     background-color: $layout-header-bg-color;
@@ -353,7 +353,7 @@
         display: block;
         color: $layout-header-text-color;
         line-height: $layout-header-desktop-row-height;
-        padding: 0 24px;
+        padding: 0 $layout-header-navigation-link-padding-vertical;
 
         @media screen and (max-width: $layout-screen-size-threshold) {
           line-height: $layout-header-mobile-row-height;
@@ -518,7 +518,7 @@
 
     text-align: center;
     font-weight: 500;
-    font-size: 14px;
+    font-size: $layout-tab-font-size;
     text-transform: uppercase;
 
     color: $layout-header-tab-text-color;
