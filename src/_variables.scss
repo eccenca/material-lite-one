@@ -530,11 +530,14 @@ $use-material-design-strict: true !default;
 
   $card-title-text-transform-origin-x: 149px !default;
   $card-title-text-transform-origin-y: 48px !default;
+  
+  $card-subtitle-font-size: 14px;
 
   $card-supporting-text-font-size: 13px !default;
   $card-supporting-text-line-height: 18px !default;
 
   $card-actions-font-size: 16px !default;
+  $card-actions_padding: 8px;
 
   $card-title-text-font-weight: 300 !default;
   $card-z-index: 1 !default;
