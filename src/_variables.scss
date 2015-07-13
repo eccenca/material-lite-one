@@ -361,10 +361,12 @@ $use-material-design-strict: true !default;
   /* TEXTFIELD */
 
   $input-text-font-size: 16px;
-  $input-text-width: 100%;
+  $input-text-error-font-size: 12px;
+  $input-text-width: 300px;
   $input-text-padding: 4px;
   $input-text-ripple-size: 32px;
   $input-text-vertical-spacing: 20px;
+  $input-text-width: 300px;
 
   $input-text-button-size: 32px;
   $input-text-floating-label-fontsize: 12px;

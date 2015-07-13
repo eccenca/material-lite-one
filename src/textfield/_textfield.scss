@@ -21,12 +21,12 @@
 .mdl-textfield {
   position: relative;
 
-  font-size: 16px;
+  font-size: $input-text-font-size;
 
   display: inline-block;
 
   box-sizing: border-box;
-  width: 300px;
+  width: $input-text-width;
   max-width: 100%;
   margin: 0;
   padding: $input-text-vertical-spacing 0;
@@ -64,6 +64,7 @@
   margin: 0;
   padding: $input-text-padding 0;
   width: $input-text-width;
+  max-width: 100%;
   background: $input-text-font-size;
   text-align: left;
   color: inherit;
@@ -122,7 +123,7 @@
 
   .mdl-textfield--floating-label.is-invalid & {
     color: $input-text-error-color;
-    font-size: 12px;
+    font-size: $input-text-floating-label-fontsize;
   }
 
   // The after label is the colored underline for the TextField.
@@ -153,8 +154,8 @@
 .mdl-textfield__error {
   color: $input-text-error-color;
   position: absolute;
-  font-size: 12px;
-  margin-top: 3px;
+  font-size: $input-text-error-font-size;
+  margin-top: 3/4 * ($input-text-font-size - $input-text-error-font-size);
   visibility: hidden;
 
   .mdl-textfield.is-invalid & {
@@ -182,7 +183,7 @@
     // in many browsers (Chrome, Firefox) only animates the inner visual style
     // of the input - the outer bounding box still 'jumps'.
     // Thus assume a sensible maximum, and animate to/from that value.
-    max-width: 600px;
+    max-width: 2 * $input-text-width;
   }
   .mdl-textfield__label:after {
     bottom: 0;
