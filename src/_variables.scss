@@ -466,8 +466,11 @@ $layout-drawer-navigation-padding-top: 16px !default;
 $layout-header-icon-size: 32px !default;
 $layout-screen-size-threshold: 1024px !default;
 $layout-header-icon-margin: 24px !default;
+$layout-drawer-button-font-size: 26px !default;
 $layout-drawer-button-mobile-size: 32px !default;
 $layout-drawer-button-desktop-size: 48px !default;
+$layout-drawer-button-desktop-margin-horizontal: 12px !default;
+$layout-drawer-button-threshold-margin: 4px !default;
 
 $layout-header-mobile-row-height: 56px !default;
 $layout-mobile-header-height: $layout-header-mobile-row-height !default;
