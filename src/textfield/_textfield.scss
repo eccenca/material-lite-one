@@ -20,11 +20,8 @@
 // The container for the whole component.
 .mdl-textfield {
   position: relative;
-
   font-size: $input-text-font-size;
-
   display: inline-block;
-
   box-sizing: border-box;
   width: $input-text-width;
   max-width: 100%;
@@ -53,21 +50,36 @@
   min-width: $input-text-button-size;
   width: auto;
   min-height: $input-text-button-size;
+
+  // Align icon button
+  .mdl-button--icon {
+    top: $input-text-expandable-icon-top;
+  }
 }
 
 // Styling for the input element.
 .mdl-textfield__input {
   border: none;
   border-bottom: 1px solid $input-text-bottom-border-color;
-  display: inline-block;
+  display: block;
   font-size: $input-text-font-size;
+  font-family: $performance_font;
   margin: 0;
   padding: $input-text-padding 0;
   width: $input-text-width;
-  max-width: 100%;
-  background: $input-text-font-size;
+  background: none;
   text-align: left;
   color: inherit;
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
   .mdl-textfield.is-focused & {
     outline: none;
@@ -78,10 +90,16 @@
     box-shadow: none;
   }
 
+  fieldset[disabled] .mdl-textfield &,
   .mdl-textfield.is-disabled & {
     background-color: transparent;
     border-bottom: 1px dotted $input-text-disabled-color;
+    color: $input-text-disabled-text-color;
   }
+}
+
+.mdl-textfield textarea.mdl-textfield__input {
+  display: block;
 }
 
 // Styling for the label / floating label.
@@ -93,13 +111,15 @@
   right: 0;
   pointer-events: none;
   position: absolute;
+  display: block;
   top: ($input-text-padding + $input-text-vertical-spacing);
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
   text-align: left;
 
-  .mdl-textfield.is-dirty & {
+  .mdl-textfield.is-dirty &,
+  .mdl-textfield.has-placeholder & {
     visibility: hidden;
   }
 
@@ -108,8 +128,18 @@
     @include material-animation-default();
   }
 
+  .mdl-textfield--floating-label.has-placeholder & {
+    transition: none;
+  }
+
+  fieldset[disabled] .mdl-textfield &,
+  .mdl-textfield.is-disabled.is-disabled & {
+    color: $input-text-disabled-text-color;
+  }
+
   .mdl-textfield--floating-label.is-focused &,
-  .mdl-textfield--floating-label.is-dirty & {
+  .mdl-textfield--floating-label.is-dirty &,
+  .mdl-textfield--floating-label.has-placeholder & {
     color: $input-text-highlight-color;
     font-size : $input-text-floating-label-fontsize;
     top: $input-text-vertical-spacing - ($input-text-floating-label-fontsize + $input-text-padding);
@@ -117,7 +147,8 @@
   }
 
   .mdl-textfield--floating-label.is-focused .mdl-textfield__expandable-holder &,
-  .mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder &{
+  .mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder &,
+  .mdl-textfield--floating-label.has-placeholder .mdl-textfield__expandable-holder & {
     top: -($input-text-floating-label-fontsize + $input-text-padding);
   }
 
@@ -154,9 +185,10 @@
 .mdl-textfield__error {
   color: $input-text-error-color;
   position: absolute;
-  font-size: $input-text-error-font-size;
-  margin-top: 3/4 * ($input-text-font-size - $input-text-error-font-size);
+  font-size: $input-text-floating-label-fontsize;
+  margin-top: 3px;
   visibility: hidden;
+  display: block;
 
   .mdl-textfield.is-invalid & {
     visibility: visible;

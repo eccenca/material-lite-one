@@ -1,12 +1,10 @@
-##Introduction
+## Introduction
+
 The Material Design Lite (MDL) **tab** component is a user interface element that allows different content blocks to share the same screen space in a mutually exclusive manner. Tabs are always presented in sets of two or more, and they make it easy to explore and switch among different views or functional aspects of an app, or to browse categorized data sets individually. Tabs serve as "headings" for their respective content; the *active* tab &mdash; the one whose content is currently displayed &mdash; is always visually distinguished from the others so the user knows which heading the current content belongs to.
 
 Tabs are an established but non-standardized feature in user interfaces, and allow users to view different, but often related, blocks of content (often called *panels*). Tabs save screen real estate and provide intuitive and logical access to data while reducing navigation and associated user confusion. Their design and use is an important factor in the overall user experience. See the tab component's [Material Design specifications page](http://www.google.com/design/spec/components/tabs.html) for details.
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
-###To include a set of MDL **tab** components:
+### To include a set of MDL **tab** components:
 
 &nbsp;1. Code a `<div>` element; this is the "outer" div, intended to contain all of the tabs and their content.
 ```html
@@ -90,7 +88,8 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 The tab components are ready for use.
 
-####Example
+#### Example
+
 Three tabs, with ripple effect on tab links.
 
 ```html
@@ -105,10 +104,10 @@ Three tabs, with ripple effect on tab links.
     Formed in 1960, their career spanned just over a decade, yet they are widely
     regarded as the most influential band in history.</p>
     <p>Their songs are among the best-loved music of all time. It is said that every
-    minute of every day, a radio station somewhere is playing a Beatles song.
+    minute of every day, a radio station somewhere is playing a Beatles song.</p>
   </div>
   <div class="mdl-tabs__panel" id="members-panel">
-    <p>The Beatles' members were:
+    <p>The Beatles' members were:</p>
     <ul>
       <li>John Lennon (1940-1980)</li>
       <li>Paul McCartney (1942-)</li>
@@ -136,7 +135,8 @@ Three tabs, with ripple effect on tab links.
 </div>
 ```
 
-##Configuration options
+## Configuration options
+
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the tabs. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |

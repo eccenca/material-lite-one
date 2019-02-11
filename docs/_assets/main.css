@@ -76,6 +76,11 @@ body:not(.about) .docs-layout .docs-layout-header.mdl-layout__header {
   background-image: url('templates.png');
   background-size: auto 29px;
 }
+.showcase .docs-layout-header.mdl-layout__header {
+  background-color: #3E82F7;
+  background-image: url('templates.png');
+  background-size: auto 29px;
+}
 .started .docs-layout-header.mdl-layout__header,
 .faq .docs-layout-header.mdl-layout__header {
   background-color: #2E2E2E;
@@ -227,6 +232,7 @@ body:not(.about) .mdl-navigation__link.download > button {
 }
 .about .docs-navigation .about,
 .templates .docs-navigation .templates,
+.showcase .docs-navigation .showcase,
 .started .docs-navigation .started,
 .styles .docs-navigation .styles,
 .components .docs-navigation .components,
@@ -262,10 +268,15 @@ body:not(.about) .mdl-navigation__link.download > button {
   justify-content: center;
   align-items: center;
 }
-.docs-footer.mdl-mini-footer ul > a {
+.docs-footer.mdl-mini-footer ul > li > a {
   margin: 0 8px;
   font-weight: 400;
   font-size: 12px;
+}
+
+.docs-footer .docs-link-list li {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .about-panel {
@@ -399,6 +410,17 @@ body:not(.about) .mdl-navigation__link.download > button {
 .templates .docs-layout .template  {
   margin-left: -16px;
 }
+
+.showcase .content {
+  padding-left: 24px !important;
+  max-width: 960px;
+}
+.showcase .docs-layout-content .content {
+  padding: 40px 0;
+}
+.showcase .docs-layout .template  {
+  margin-left: -16px;
+}
 .template {
   width: 100%;
   margin-bottom: 72px;
@@ -409,6 +431,9 @@ body:not(.about) .mdl-navigation__link.download > button {
   padding-left: 24px;
 }
 .templates .docs-layout.is-small-screen .template > .template__meta {
+  padding-left: 0;
+}
+.showcase .docs-layout.is-small-screen .template > .template__meta {
   padding-left: 0;
 }
 .template > .template__meta.template__meta > * {
@@ -490,12 +515,17 @@ body:not(.about) .mdl-navigation__link.download > button {
 .component-description .mdl-button:first-of-type {
   margin-top: 8px;
 }
+.docs-footer.mdl-mini-footer .mdl-mini-footer--social-btn {
+  background-color: transparent;
+  margin: 0 16px;
+  width: 24px;
+  height: 24px;
+}
 .docs-footer.mdl-mini-footer .social-btn {
+  display: block;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: transparent;
-  margin: 0 16px;
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -530,7 +560,8 @@ body:not(.about) .mdl-navigation__link.download > button {
 .customize .subpageheader,
 .styles .subpageheader,
 .faq .subpageheader,
-.templates .subpageheader {
+.templates .subpageheader,
+.showcase .subpageheader {
   width: 960px;
   margin: 40px auto;
 }
@@ -547,16 +578,16 @@ body:not(.about) .mdl-navigation__link.download > button {
   width: 100%;
 }
 .snippet-group .snippet-demos,
-.snippet-group .snippet-captions{
-  display: table-row;
-}
 .snippet-group .snippet-captions {
-  background-color: white;
-  height: 48px;
+  display: table-row;
 }
 .snippet-group .snippet-demo .snippet-demo-container {
   text-align: left;
   display: inline-block;
+}
+.snippet-group .snippet-captions {
+  background-color: white;
+  height: 48px;
 }
 .snippet-group .snippet-demo,
 .snippet-group .snippet-demo-padding,
@@ -568,6 +599,7 @@ body:not(.about) .mdl-navigation__link.download > button {
   margin: 0;
   padding: 0;
 }
+
 .snippet-group .snippet-caption {
   font-size: 13px;
   padding: 0px 40px;
@@ -575,62 +607,17 @@ body:not(.about) .mdl-navigation__link.download > button {
   text-align: center;
   position: relative;
 }
-.snippet-group .snippet-caption .snippet-copy {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  opacity: 0;
-  z-index: 3;
-}
-.snippet-group .snippet-caption .mdl-button {
-  text-transform: none;
-  font-size: 13px;
-  font-weight: normal;
-  line-height: 36px;
-}
 
-.snippet-group .snippet-caption .copy-to-clipboard-button .material-icons {
-  background-color: #00BCD4;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  font-size: 16px;
-  color: white;
-  top: 3px;
-}
-.snippet-group .snippet-caption .snippet-copy .clippy {
-  height: 100%;
-  width: 785%;
-}
-.snippet-group .snippet-caption .mdl-button__ripple-container {
-  z-index: 2;
-}
-.snippet-group .snippet-caption:hover {
-  color: black;
-}
-.snippet-group .snippet-caption .material-icons {
-  position: relative;
-  top: 6px;
-  margin-right: 10px;
-}
 .snippet-group .snippet-demo {
   padding: 0px 40px 40px 40px;
 }
-.snippet-group .snippet-demos .snippet-demo-padding,
-.snippet-group .snippet-captions .snippet-caption-padding {
+.snippet-group .snippet-demos .snippet-demo-padding {
   width: 50%;
 }
 _:-ms-input-placeholder, :root .snippet-group .snippet-demo {
   width: 1px;
 }
 _:-ms-input-placeholder, :root .snippet-group .snippet-demos .snippet-demo-padding {
-  width: auto;
-}
-_:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption-padding {
   width: auto;
 }
 .snippet-group .snippet-code {
@@ -660,19 +647,19 @@ _:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption
 .snippet-group .snippet-code code:last-of-type {
   padding-bottom: 16px;
 }
-.snippet-group .snippet-code code.highlighted {
+.snippet-group .snippet-code code:hover {
   background-color: rgba(0,0,0,0.05);
 }
-.snippet-group .snippet-code code.highlighted:only-of-type {
+.snippet-group .snippet-code code:hover:only-of-type {
   background-color: transparent;
 }
 .snippet-group .snippet-code code::before,
 .snippet-group .snippet-code code::after {
   display: none;
 }
-.snippet-group .snippet-code code.highlighted::before {
+.snippet-group .snippet-code code:hover::before {
   display: inline-block;
-  content: 'Copy';
+  content: 'click to copy';
   color: rgba(0,0,0,0.5);
   font-size: 13px;
   background-color: rgba(0,0,0,0.1);
@@ -682,21 +669,24 @@ _:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption
   bottom: 0;
   padding: 3px 10px;
 }
-.snippet-group .snippet-code code.highlighted.copied::before {
-  content: 'Copied';
+.snippet-group .snippet-code code:active::before {
+  content: '';
+}
+.snippet-group .snippet-code code.copied::before {
+  content: 'copied';
+  color: rgba(255,255,255,0.5);
+  background-color: rgba(0,0,0,0.6);
+}
+.snippet-group .snippet-code code.nosupport::before {
+  content: "browser not supported :'(";
   color: rgba(255,255,255,0.5);
   background-color: rgba(0,0,0,0.6);
 }
 .snippet-group .snippet-code .codepen-extra-css {
   display:none;
 }
-.no-flash .snippet-group .snippet-code code.highlighted::before,
-.no-flash .snippet-group .copy {
-  display: none;
-}
 @media (max-width: 850px) {
-  .snippet-group .snippet-demo,
-  .snippet-group .snippet-caption {
+  .snippet-group .snippet-demo {
     padding-left: 5px;
     padding-right: 5px;
   }
@@ -709,8 +699,7 @@ _:-ms-input-placeholder, :root .snippet-group .snippet-captions .snippet-caption
   padding-left: 0;
   padding-right: 0;
 }
-.snippet-group.is-full-width .snippet-demo-padding,
-.snippet-group.is-full-width .snippet-caption-padding {
+.snippet-group.is-full-width .snippet-demo-padding {
   width: 0;
   padding: 8px;
   margin: 0;
@@ -938,8 +927,8 @@ code[class*=language-], pre[class*=language-] {
 .docs-layout li {
   position: relative;
 }
-.styles li:before,
-.docs-readme li:before {
+.styles .content li:before,
+.docs-readme .content li:before {
   position: absolute;
   top: 2px;
   left: -28px;
@@ -1217,6 +1206,9 @@ code[class*=language-], pre[class*=language-] {
     background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_white_24dp.png');
   }
   .templates .docs-layout-header {
+    background-image: url('templates_2x.png');
+  }
+  .showcase .docs-layout-header {
     background-image: url('templates_2x.png');
   }
   .components .docs-layout-header {

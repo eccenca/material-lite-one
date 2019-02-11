@@ -22,7 +22,7 @@
   border: $data-table-dividers;
   border-collapse: collapse;
   white-space: nowrap;
-  font-size: 13px;
+  font-size: $data-table-font-size;
   background-color: unquote("rgb(#{$color-white})");
 
   thead {
@@ -51,7 +51,7 @@
   }
 
   td, th {
-    padding: 0 $data-table-column-padding 0 $data-table-column-padding;
+    padding: 0 $data-table-column-padding 12px $data-table-column-padding;
     text-align: right;
 
     &:first-of-type {
@@ -65,7 +65,7 @@
 
   td {
     position: relative;
-    vertical-align: top;
+    vertical-align: middle;
     height: $data-table-row-height;
     border-top: $data-table-dividers;
     border-bottom: $data-table-dividers;
@@ -73,9 +73,7 @@
     box-sizing: border-box;
 
     .mdl-data-table__select {
-      vertical-align: top;
-      position: absolute;
-      left: 24px;
+      vertical-align: middle;
     }
   }
 
@@ -85,13 +83,30 @@
     text-overflow: ellipsis;
     @include typo-body-2();
     height: $data-table-row-height;
-    font-size: 12px;
+    font-size: $data-table-header-font-size;
     color: $data-table-header-color;
     padding-bottom: 8px;
     box-sizing: border-box;
 
-    .mdl-data-table__select {
-      position: relative;
+    &.mdl-data-table__header--sorted-ascending,
+    &.mdl-data-table__header--sorted-descending {
+      color: $data-table-header-sorted-color;
+      &:before {
+        @include typo-icon;
+        font-size: $data-table-header-sort-icon-size;
+        content: "\e5d8";
+        margin-right: 5px;
+        vertical-align: sub;
+      }
+      &:hover {
+        cursor: pointer;
+        &:before {
+          color: $data-table-header-sorted-icon-hover-color;
+        }
+      }
+    }
+    &.mdl-data-table__header--sorted-descending:before {
+      content: "\e5db";
     }
   }
 }

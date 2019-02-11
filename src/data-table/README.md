@@ -1,14 +1,12 @@
-##Introduction
+## Introduction
+
 The Material Design Lite (MDL) **data-table** component is an enhanced version of the standard HTML `<table>`. A data-table consists of rows and columns of well-formatted data, presented with appropriate user interaction capabilities.
 
 Tables are a ubiquitous feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the data-table component's [Material Design specifications page](http://www.google.com/design/spec/components/data-tables.html) for details.
 
 The available row/column/cell types in a data-table are mostly self-formatting; that is, once the data-table is defined, the individual cells require very little specific attention. For example, the rows exhibit shading behavior on mouseover and selection, numeric values are automatically formatted by default, and the addition of a single class makes the table rows individually or collectively selectable. This makes the data-table component convenient and easy to code for the developer, as well as attractive and intuitive for the user.
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
-###To include an MDL **data-table** component:
+### To include an MDL **data-table** component:
 
 &nbsp;1. Code a `<table>` element. Include `<thead>` and `<tbody>` elements to hold the title and data rows, respectively.
 ```html
@@ -77,7 +75,8 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 The data-table component is ready for use.
 
-####Examples
+#### Examples
+
 A data-table with a "master" select checkbox and individual row select checkboxes.
 ```html
 <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
@@ -148,7 +147,8 @@ A data-table without select checkboxes containing mostly text data.
 </table>
 ```
 
-##Configuration options
+## Configuration options
+
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the data-table. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
@@ -156,5 +156,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-data-table` | Defines table as an MDL component | Required on table element|
 | `mdl-js-data-table` | Assigns basic MDL behavior to table | Required on table element|
 | `mdl-data-table--selectable` | Applies all/individual selectable behavior (checkboxes) | Optional; goes on table element |
+| `mdl-data-table__header--sorted-ascending` | Applies visual styling to indicate the column is sorted in ascending order | Optional; goes on table header (`th`) |
+| `mdl-data-table__header--sorted-descending` | Applies visual styling to indicate the column is sorted in descending order | Optional; goes on table header (`th`) |
 | `mdl-data-table__cell--non-numeric` | Applies text formatting to data cell | Optional; goes on both table header and table data cells |
 | (none) | Applies numeric formatting to header or data cell (default) |  |

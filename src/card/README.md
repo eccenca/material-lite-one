@@ -1,14 +1,12 @@
-##Introduction
+## Introduction
+
 The Material Design Lite (MDL) **card** component is a user interface element representing a virtual piece of paper that contains related data &mdash; such as a photo, some text, and a link &mdash; that are all about a single subject.
 
 Cards are a convenient means of coherently displaying related content that is composed of different types of objects. They are also well-suited for presenting similar objects whose size or supported actions can vary considerably, like photos with captions of variable length. Cards have a constant width and a variable height, depending on their content.
 
 Cards are a fairly new feature in user interfaces, and allow users an access point to more complex and detailed information. Their design and use is an important factor in the overall user experience. See the card component's [Material Design specifications page](http://www.google.com/design/spec/components/cards.html) for details.
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
-###To include an MDL **card** component:
+### To include an MDL **card** component:
 
 &nbsp;1. Code a `<div>` element; this is the "outer" container, intended to hold all of the card's content.
 ```html
@@ -70,14 +68,14 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 The card component is ready for use.
 
-####Examples
+#### Examples
 
 A card (no shadow) with a title, image, text, and action.
 
 ```html
 <div class="mdl-card">
   <div class="mdl-card__title">
-     <h2 class="mdl-card__title-text">Auckland Sky Tower<br/>Auckland, New Zealand</h2>
+     <h2 class="mdl-card__title-text">Auckland Sky Tower<br>Auckland, New Zealand</h2>
   </div>
   <div class="mdl-card__media">
     <img src="skytower.jpg" width="173" height="157" border="0" alt=""
@@ -112,17 +110,19 @@ Card (level-3 shadow) with an image, caption, and text:
 </div>
 ```
 
-##Configuration options
+## Configuration options
+
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the card. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
 | `mdl-card` | Defines div element as an MDL card container | Required on "outer" div |
 | `mdl-card--border` | Adds a border to the card section that it's applied to | Used on the "inner" divs |
-| `mdl-shadow--2dp through mdl-shadow--8dp` | Assigns variable shadow depths (1-5) to card | Optional, goes on "outer" div; if omitted, no shadow is present |
+| `mdl-shadow--2dp through mdl-shadow--16dp` | Assigns variable shadow depths (2, 3, 4, 6, 8, or 16) to card | Optional, goes on "outer" div; if omitted, no shadow is present |
 | `mdl-card__title` | Defines div as a card title container | Required on "inner" title div |
 | `mdl-card__title-text` | Assigns appropriate text characteristics to card title | Required on head tag (H1 - H6) inside title div |
-| `mdl-card__subtitle-text` | Assigns text characteristics to a card subtitile | Optional. Should be a child of the title element. |
+| `mdl-card__subtitle-text` | Assigns text characteristics to a card subtitle | Optional. Should be a child of the title element. |
 | `mdl-card__media` | Defines div as a card media container | Required on "inner" media div |
 | `mdl-card__supporting-text` | Defines div as a card body text container and assigns appropriate text characteristics to body text | Required on "inner" body text div; text goes directly inside the div with no intervening containers |
 | `mdl-card__actions` | Defines div as a card actions container and assigns appropriate text characteristics to actions text | Required on "inner" actions div; content goes directly inside the div with no intervening containers |
+| `mdl-card__menu` | Defines element as top right menu button | Optional. Should be a child of the `mdl-card` element. |

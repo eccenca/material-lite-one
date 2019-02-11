@@ -19,13 +19,12 @@
 .mdl-tooltip {
   transform: scale(0);
   transform-origin: top center;
-  will-change: transform;
   z-index: 999;
   background: $tooltip-background-color;
   border-radius: 2px;
   color: $tooltip-text-color;
   display: inline-block;
-  font-size: 10px;
+  font-size: $tooltip-font-size;
   font-weight: 500;
   line-height: 14px;
   max-width: 170px;
@@ -41,7 +40,7 @@
 
 .mdl-tooltip--large {
   line-height: 14px;
-  font-size: 14px;
+  font-size: $tooltip-font-size-large;
   padding: 16px;
 }
 

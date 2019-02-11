@@ -23,15 +23,15 @@
   border: none;
   border-radius: $button-border-radius;
   color: $button-secondary-color;
-  display: block;
   position: relative;
   height: $button-height;
+  margin: 0;
   min-width: $button-min-width;
   padding: 0 $button-padding;
   display: inline-block;
   @include typo-button();
   overflow: hidden;
-  will-change: box-shadow, transform;
+  will-change: box-shadow;
   transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
               background-color 0.2s $animation-curve-default,
               color 0.2s $animation-curve-default;
@@ -56,13 +56,6 @@
 
   &:active {
     background-color: $button-active-color;
-  }
-
-  // Bump up specificity by using [disabled] twice.
-  &[disabled][disabled] {
-    color: $button-secondary-color-disabled;
-    cursor: auto;
-    background-color: transparent;
   }
 
   &.mdl-button--colored {
@@ -112,13 +105,6 @@ input.mdl-button[type="submit"] {
       & .mdl-ripple {
         background: $button-ripple-color-alt;
       }
-    }
-
-    // Bump up specificity by using [disabled] twice.
-    &[disabled][disabled] {
-      background-color: $button-primary-color-disabled;
-      color: $button-secondary-color-disabled;
-      @include shadow-2dp();
     }
   }
 
@@ -189,13 +175,6 @@ input.mdl-button[type="submit"] {
         background: $button-fab-ripple-color-alt;
       }
     }
-
-    // Bump up specificity by using [disabled] twice.
-    &[disabled][disabled] {
-      background-color: $button-primary-color-disabled;
-      color: $button-secondary-color-disabled;
-      @include shadow-2dp();
-    }
   }
 
 
@@ -252,7 +231,8 @@ input.mdl-button[type="submit"] {
     z-index: 0;
     overflow: hidden;
 
-    .mdl-button[disabled] & .mdl-ripple {
+    .mdl-button[disabled] & .mdl-ripple,
+    .mdl-button.mdl-button--disabled & .mdl-ripple {
       background-color: transparent;
     }
   }
@@ -279,4 +259,47 @@ input.mdl-button[type="submit"] {
     color: $button-fab-text-color-alt;
     background-color: $button-fab-color-alt;
   }
+}
+
+// Disabled buttons
+
+.mdl-button {
+  // Bump up specificity by using [disabled] twice.
+  &[disabled][disabled],
+  &.mdl-button--disabled.mdl-button--disabled {
+    color: $button-secondary-color-disabled;
+    cursor: default;
+    background-color: transparent;
+  }
+
+  &--fab {
+    // Bump up specificity by using [disabled] twice.
+    &[disabled][disabled],
+    &.mdl-button--disabled.mdl-button--disabled {
+      background-color: $button-primary-color-disabled;
+      color: $button-secondary-color-disabled;
+    }
+  }
+
+  &--raised {
+    // Bump up specificity by using [disabled] twice.
+    &[disabled][disabled],
+    &.mdl-button--disabled.mdl-button--disabled {
+      background-color: $button-primary-color-disabled;
+      color: $button-secondary-color-disabled;
+      box-shadow: none;
+    }
+  }
+  &--colored {
+    // Bump up specificity by using [disabled] twice.
+    &[disabled][disabled],
+    &.mdl-button--disabled.mdl-button--disabled {
+      color: $button-secondary-color-disabled;
+    }
+  }
+}
+
+// Align icons inside buttons with text
+.mdl-button .material-icons {
+  vertical-align: middle;
 }

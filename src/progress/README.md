@@ -1,12 +1,10 @@
-##Introduction
+## Introduction
+
 The Material Design Lite (MDL) **progress** component is a visual indicator of background activity in a web page or application. A progress indicator consists of a (typically) horizontal bar containing some animation that conveys a sense of motion. While some progress devices indicate an approximate or specific percentage of completion, the MDL progress component simply communicates the fact that an activity is ongoing and is not yet complete.
 
 Progress indicators are an established but non-standardized feature in user interfaces, and provide users with a visual clue to an application's status. Their design and use is therefore an important factor in the overall user experience. See the progress component's [Material Design specifications page](http://www.google.com/design/spec/components/progress-activity.html) for details.
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
-###To include an MDL **progress** component:
+### To include an MDL **progress** component:
 
 &nbsp;1. Code a `<div>` element. Include any desired attributes and values, such as an id or width &mdash; typically done using external CSS rather than the inline `style` attribute as shown here.
 ```html
@@ -19,7 +17,8 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 
 The progress component is ready for use.
 
-####Examples
+#### Examples
+
 A static (non-animated) progress indicator.
 ```html
 <div id="progstatic" style="width:250px" class="mdl-js-progress"></div>
@@ -28,13 +27,16 @@ A static (non-animated) progress indicator.
 An active (animated) progress indicator.
 ```html
 <div id="progactive" style="width:200px" class="mdl-js-progress
- mdl-progress__indeterminate"></div>
+ mdl-progress--indeterminate"></div>
 ```
 
-##Configuration options
+## Configuration options
+
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the progress indicator. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
 |-----------|--------|---------|
 | `mdl-js-progress` | Assigns basic MDL behavior to progress indicator | Required |
-| `mdl-progress__indeterminate` | Applies animation effect | Optional |
+| `mdl-progress--indeterminate` | Applies animation effect | Optional |
+
+> Note: `mdl-progress__intermediate` does exist within the codebase. It is deprecated since the name is not in BEM alignment. It will be removed in 2.0.

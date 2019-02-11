@@ -4,5 +4,19 @@
   "validateLineBreaks": "LF",
   "validateIndentation": 2,
   "excludeFiles": ["node_modules/**"],
-  "maximumLineLength": 130
+  "maximumLineLength": 130,
+  "validateQuoteMarks": "'",
+  "requireDotNotation": false,
+  "requireCamelCaseOrUpperCaseIdentifiers": {"allowedPrefixes": ["opt_"]},
+  "jsDoc": {
+    "checkAnnotations": {
+      "preset": "closurecompiler",
+      "extra": {
+        "type": true,
+        "suppress": true
+      }
+    },
+    "checkTypes": "strictNativeCase",
+    "enforceExistence": "exceptExports"
+  }
 }

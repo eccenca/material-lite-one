@@ -40,6 +40,15 @@
  * -----Shadows
  * -----Grid
  * -----Data table
+ * -----Dialog
+ * -----Snackbar
+ * -----Tooltip
+ * -----Chip
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent on one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
  */
 
 
@@ -67,9 +76,21 @@ $performance_font: 'Helvetica', 'Arial', sans-serif !default;
 *
 **/
 
-@import "_color-definitions";
+@import "color-definitions";
+@import "functions";
+
+/* ==========  IMAGES  ========== */
+$image_path: '/images' !default;
 
 /* ==========  Color & Themes  ========== */
+
+// Define whether individual color palette items should have classes created.
+// Setting this to true will remove individual color classes for each color in the palettes.
+// To improve overall performance (assuming they aren't used) by:
+// * Saving server bandwidth sending the extra classes
+// * Save client computation against the classes
+// it is RECOMMENDED you set this to true.
+$trim-color-classes: false !default;
 
 // Use color primarily for emphasis. Choose colors that fit with
 // your brand and provide good contrast between visual components.
@@ -99,6 +120,13 @@ $color-accent-contrast: $color-dark-contrast !default;
 
 $text-color-primary: unquote("rgba(#{$color-black}, 0.87)") !default;
 $text-link-color: unquote("rgb(#{$color-accent})") !default;
+
+// Define whether to target elements directly for typographic enhancements.
+// Turning this off means you need to use mdl-* classes more often.
+// Other components may also fail to adhere to MD without these rules.
+// It is strongly recommended you leave this as true.
+
+$target-elements-directly: true !default;
 
 /* ==========  Components  ========== */
 
@@ -163,8 +191,8 @@ $layout-drawer-bg-color: unquote("rgb(#{$palette-grey-50})") !default;
 $layout-drawer-border-color: unquote("rgb(#{$palette-grey-300})") !default;
 $layout-text-color: unquote("rgb(#{$palette-grey-800})") !default;
 $layout-drawer-navigation-color: #757575 !default;
-$layout-drawer-navigation-link-active-background: unquote("rgb(#{$color-light-contrast})") !default;
-$layout-drawer-naviagtion-link-active-color: unquote("rgb(#{$color-primary})") !default;
+$layout-drawer-navigation-link-active-background: unquote("rgb(#{$palette-grey-300})") !default;
+$layout-drawer-navigation-link-active-color: unquote("rgb(#{$color-light-contrast})") !default;
 
 // Header
 $layout-header-bg-color: unquote("rgb(#{$color-primary})") !default;
@@ -188,6 +216,7 @@ $checkbox-color: unquote("rgb(#{$color-primary})") !default;
 $checkbox-off-color: unquote("rgba(#{$color-black}, 0.54)") !default;
 $checkbox-disabled-color: unquote("rgba(#{$color-black}, 0.26)") !default;
 $checkbox-focus-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
+$checkbox-image-path: $image_path;
 
 /* ==========  Switches  ========== */
 
@@ -217,15 +246,17 @@ $input-text-label-color: unquote("rgba(#{$color-black}, 0.26)") !default;
 $input-text-bottom-border-color: unquote("rgba(#{$color-black}, 0.12)") !default;
 $input-text-highlight-color: unquote("rgb(#{$color-primary})") !default;
 $input-text-disabled-color: $input-text-bottom-border-color !default;
-$input-text-error-color: unquote("rgb(222, 50, 38)") !default;
+$input-text-disabled-text-color: $input-text-label-color !default;
+$input-text-error-color: unquote("rgb(#{$palette-red-A700})") !default;
 
 /* ==========  Card  ========== */
 
 $card-background-color: unquote("rgb(#{$color-white})") !default;
 $card-text-color: unquote("rgb(#{$color-black})") !default;
 $card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
-$card-supporting-text-text-color: $text-color-primary !default;
+$card-supporting-text-text-color: unquote("rgba(#{$color-black}, 0.54)") !default;
 $card-border-color: rgba(0,0,0,0.1) !default;
+$card-subtitle-color: unquote("rgba(#{$color-black}, 0.54)") !default;
 
 /* ==========  Sliders ========== */
 
@@ -238,6 +269,7 @@ $range-bg-focus-color: unquote("rgba(#{$color-black}, 0.12)") !default;
 $progress-main-color: unquote("rgb(#{$color-primary})") !default;
 $progress-secondary-color: unquote("rgba(#{$color-primary-contrast}, 0.7)") !default;
 $progress-fallback-buffer-color: unquote("rgba(#{$color-primary-contrast}, 0.9)") !default;
+$progress-image-path: $image_path;
 
 /* ==========  Badge ========== */
 $badge-color: unquote("rgb(#{$color-white})") !default;
@@ -249,6 +281,10 @@ $badge-background-inverse: unquote("rgba(#{$color-white},0.2)") !default;
 
 $list-container-item-border-color: unquote("rgb(#{$palette-grey-300})") !default;
 $list-container-view-background: unquote("rgb(#{$color-white})") !default;
+$list-main-text-text-color: unquote("rgba(#{$color-black}, 0.87)") !default;
+$list-supporting-text-text-color: unquote("rgba(#{$color-black}, 0.54)") !default;
+$list-icon-color: unquote("rgb(#{$palette-grey-600})") !default;
+$list-avatar-color: white !default;
 
 /* ==========  Item ========== */
 
@@ -258,6 +294,7 @@ $default-item-outline-color: unquote("rgb(#{$palette-grey-400})") !default;
 $default-item-hover-bg-color: unquote("rgb(#{$palette-grey-200})") !default;
 $default-item-focus-bg-color: unquote("rgb(#{$palette-grey-200})") !default;
 $default-item-active-bg-color: unquote("rgb(#{$palette-grey-300})") !default;
+$default-item-divider-color: unquote("rgba(#{$color-black}, 0.12)") !default;
 
 // Disabled Button Colors
 $disabled-item-text-color: unquote("rgb(#{$palette-grey-400})") !default;
@@ -287,354 +324,343 @@ $footer-underline-color: $footer-color !default;
 
 /* ==========  Sizes & Dimensions ========== */
 
-/* set ``$use-material-design-strict`` to false and import your own stack of
-   sizing variables first, before you import MDL.
-*/
-
-$use-material-design-strict: true !default;
-
-@if $use-material-design-strict == true {
-  /* TYPOGRAPHY */
-  $typo-display-4-font-size: 112px;
-  $typo-display-4-line-height: 1;
-
-  $typo-display-3-font-size: 56px;
-  $typo-display-3-line-height: 1.35;
-  $typo-display-3-margin-top: 24px;
-  $typo-display-3-margin-bottom: 24px;
-
-  $typo-display-2-font-size: 45px;
-  $typo-display-2-line-height: 48px;
-  $typo-display-2-margin-top: 24px;
-  $typo-display-2-margin-bottom: 24px;
-
-  $typo-display-1-font-size: 34px;
-  $typo-display-1-line-height: 40px;
-  $typo-display-1-margin-top: 24px;
-  $typo-display-1-margin-bottom: 24px;
-
-  $typo-headline-font-size: 24px;
-  $typo-headline-line-height: 32px;
-  $typo-headline-margin-top: 24px;
-  $typo-headline-margin-bottom: 16px;
-
-  $typo-title-font-size: 20px;
-  $typo-title-line-height: 1;
-  $typo-title-margin-top: 24px;
-  $typo-title-margin-bottom: 16px;
-
-  $typo-subhead-font-size: 16px;
-  $typo-subhead-line-height: 24px;
-  $typo-subhead-margin-top: 24px;
-  $typo-subhead-margin-bottom: 16px;
+/* TYPOGRAPHY */
+$typo-display-4-font-size: 112px !default;
+$typo-display-4-line-height: 1 !default;
 
-  $typo-subhead-2-font-size: 16px;
-  $typo-subhead-2-line-height: 28px;
+$typo-display-3-font-size: 56px !default;
+$typo-display-3-line-height: 1.35 !default;
+$typo-display-3-margin-top: 24px !default;
+$typo-display-3-margin-bottom: 24px !default;
 
-  $typo-body-base-font-size: 14px;
-  $typo-body-base-line-height: 20px;
-
-  $typo-body-1-font-size: 14px;
-  $typo-body-1-line-height: 24px;
-  $typo-body-1-margin-bottom: 16px;
-
-  $typo-caption-font-size: 12px;
-  $typo-caption-line-height: 1;
-
-  $typo-blockquote-font-size: 24px;
-  $typo-blockquote-line-height: 1.35;
-
-  $typo-menu-font-size: 14px;
-  $typo-menu-line-height: 1;
-
-  $typo-button-font-size: 14px;
-  $typo-button-line-height: 1;
-  
-  /* LAYOUT */
-  
-  $layout-navigation-link-font-size: 13px;
-  $layout-drawer-navigation-padding-top: 16px;
-  $layout-header-max-height: 1000px;
-  $layout-header-navigation-link-padding-vertical: 24px;
-  $layout-tab-font-size: 14px;
-  
-  /* TEXTFIELD */
-
-  $input-text-font-size: 16px;
-  $input-text-error-font-size: 12px;
-  $input-text-width: 300px;
-  $input-text-padding: 4px;
-  $input-text-ripple-size: 32px;
-  $input-text-vertical-spacing: 20px;
-  $input-text-width: 300px;
-
-  $input-text-button-size: 32px;
-  $input-text-floating-label-fontsize: 12px;
-  $input-text-expandable-icon-top: 16px;
-
-
-  /* SWITCH */
-
-  $switch-label-height: 24px;
-  $switch-track-height: 14px;
-  $switch-track-length: 36px;
-  $switch-thumb-size: 20px;
-  $switch-track-top: ($switch-label-height - $switch-track-height) / 2;
-  $switch-thumb-top: ($switch-label-height - $switch-thumb-size) / 2;
-  $switch-ripple-size: $switch-label-height * 2;
-  $switch-helper-size: 8px;
-
-  /* SPINNER */
-
-  $spinner-size: 28px !default;
-  $spinner-stroke-width: 3px !default;
-
-  // Amount of circle the arc takes up.
-  $spinner-arc-size: 270deg;
-  // Time it takes to expand and contract arc.
-  $spinner-arc-time: 1333ms;
-  // How much the start location of the arc should rotate each time.
-  $spinner-arc-start-rot: 216deg;
+$typo-display-2-font-size: 45px !default;
+$typo-display-2-line-height: 48px !default;
+$typo-display-2-margin-top: 24px !default;
+$typo-display-2-margin-bottom: 24px !default;
 
-  $spinner-duration: 360deg * $spinner-arc-time / (
-      $spinner-arc-start-rot + (360deg - $spinner-arc-size));
-
+$typo-display-1-font-size: 34px !default;
+$typo-display-1-line-height: 40px !default;
+$typo-display-1-margin-top: 24px !default;
+$typo-display-1-margin-bottom: 24px !default;
 
-  /* RADIO */
-
-  $radio-label-height: 24px;
-  $radio-button-size: 16px;
-  $radio-inner-margin: $radio-button-size / 4;
-  $radio-padding: 8px;
-  $radio-top-offset: ($radio-label-height - $radio-button-size) / 2 - 2px;
-  $radio-ripple-size: 42px;
-
-
-  /* MENU */
-
-  $menu-expand-duration: 0.3s;
-  $menu-fade-duration: 0.2s;
-
-  /* LIST */
-
-  $list-container-height: 500px;
-  $list-container-width: 400px;
-  $list-container-item-height: 70px;
-
-  /* ICONS */
-
-
-  // Dimensions
-  $layout-drawer-narrow: 240px;
-  $layout-drawer-wide: 456px;
-  $layout-drawer-width: $layout-drawer-narrow;
-
-  $layout-header-icon-size: 32px;
-  $layout-screen-size-threshold: 850px;
-  $layout-header-icon-margin: 24px;
-  $layout-drawer-button-font-size: 26px;
-  $layout-drawer-button-mobile-size: 32px;
-  $layout-drawer-button-desktop-size: 48px;
-  $layout-drawer-button-desktop-margin-vertical: 10px;
-  $layout-drawer-button-desktop-margin-horizontal: 12px;
-  $layout-drawer-button-threshold-margin: 4px;
-
-  $layout-header-mobile-row-height: 56px;
-  $layout-mobile-header-height: $layout-header-mobile-row-height;
-  $layout-header-desktop-row-height: 64px;
-  $layout-desktop-header-height: $layout-header-desktop-row-height;
-
-  $layout-header-desktop-baseline: 80px;
-  $layout-header-mobile-baseline: 72px;
-  $layout-header-mobile-indent: 16px;
-  $layout-header-desktop-indent: 40px;
-
-  $layout-tab-bar-height: 48px;
-  $layout-tab-mobile-padding: 12px;
-  $layout-tab-desktop-padding: 24px;
-  $layout-tab-highlight-thickness: 2px;
-
-
-  /* ICON TOGGLE */
-
-  $icon-toggle-size: 32px !default;
-  $icon-toggle-font-size: 24px !default;
-  $icon-toggle-ripple-size: 36px !default;
-
-  /* FOOTER */
-
-  /*mega-footer*/
-  /**************
-   *
-   * Sizes
-   *
-   *************/
-  $footer-min-padding: 16px !default;
-  $footer-padding-sides: 40px !default;
-  $footer-heading-font-size: 14px !default;
-  $footer-heading-line-height: (1.7 * $footer-heading-font-size) !default;
-  $footer-btn-size: 36px  !default;
-
-  /*mini-footer*/
-
-  /**************
-   *
-   * Sizes
-   *
-   *************/
-  $padding: 16px !default;
-  $footer-heading-font-size: 24px !default;
-  $footer-heading-line-height: (1.5 * $footer-heading-font-size) !default;
-  $footer-btn-size: 36px !default;
-
-  /* COLUMN LAYOUT */
-
-  // Cutoff points for devices.
-  $columns-tablet-size: 768px;
-  $columns-desktop-size: 1024px;
-
-  // Web (desktop) layout. Columns are fixed width, and there's a maximum number
-  // of 3 columns, after which we just add padding to either side.
-  $columns-web-count: 3;
-  $columns-web-size: 360px;
-  $columns-web-gutter: 40px;
+$typo-headline-font-size: 24px !default;
+$typo-headline-line-height: 32px !default;
+$typo-headline-margin-top: 24px !default;
+$typo-headline-margin-bottom: 16px !default;
 
-  $columns-web-block-size: $columns-web-size + $columns-web-gutter;
-  $columns-web-padding-size: $columns-web-count *
-      ($columns-web-size + $columns-web-gutter) / 2;
+$typo-title-font-size: 20px !default;
+$typo-title-line-height: 1 !default;
+$typo-title-margin-top: 24px !default;
+$typo-title-margin-bottom: 16px !default;
 
-  // Tablet layout. There's a fixed number of columns, which grow to fill the
-  // entire container.
-  $columns-tablet-count: 2;
-  $columns-tablet-gutter: 24px;
-  $columns-tablet-percent: 100% / $columns-tablet-count;
+$typo-subhead-font-size: 16px !default;
+$typo-subhead-line-height: 24px !default;
+$typo-subhead-margin-top: 24px !default;
+$typo-subhead-margin-bottom: 16px !default;
 
-  // Phone layout. There's a fixed number of columns, which grow to fill the
-  // entire container.
-  $columns-phone-count: 1;
-  $columns-phone-gutter: 16px;
-  $columns-phone-percent: 100% / $columns-phone-count;
+$typo-subhead-2-font-size: 16px !default;
+$typo-subhead-2-line-height: 28px !default;
 
-  /* CHECKBOX */
+$typo-body-base-font-size: 14px !default;
+$typo-body-base-line-height: 20px !default;
 
-  $checkbox-label-height: 24px;
-  $checkbox-button-size: 16px;
-  $checkbox-inner-margin: 2px;
-  $checkbox-padding: 8px;
-  $checkbox-top-offset:
-  ($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2;
-  $checkbox-ripple-size: $checkbox-label-height * 1.5;
+$typo-body-1-font-size: 14px !default;
+$typo-body-1-line-height: 24px !default;
+$typo-body-1-margin-bottom: 16px !default;
 
-  /* CARD */
+$typo-caption-font-size: 12px !default;
+$typo-caption-line-height: 1 !default;
 
-  /* Card dimensions */
-  $card-width: 330px !default;
-  $card-height: 200px !default;
-  $card-font-size: 16px !default;
-  $card-title-font-size: 24px !default;
-  $card-horizontal-padding: 16px !default;
-  $card-vertical-padding: 16px !default;
+$typo-blockquote-font-size: 24px !default;
+$typo-blockquote-line-height: 1.35 !default;
 
-  $card-title-perspective-origin-x: 165px !default;
-  $card-title-perspective-origin-y: 56px !default;
+$typo-menu-font-size: 14px !default;
+$typo-menu-line-height: 1 !default;
 
-  $card-title-transform-origin-x: 165px !default;
-  $card-title-transform-origin-y: 56px !default;
+$typo-button-font-size: 14px !default;
+$typo-button-line-height: 1 !default;
 
-  $card-title-text-transform-origin-x: 149px !default;
-  $card-title-text-transform-origin-y: 48px !default;
-  
-  $card-subtitle-font-size: 14px;
+/* TEXTFIELD */
 
-  $card-supporting-text-font-size: 13px !default;
-  $card-supporting-text-line-height: 18px !default;
+$input-text-font-size: 16px !default;
+$input-text-width: 100% !default;
+$input-text-padding: 4px !default;
+$input-text-vertical-spacing: 20px !default;
 
-  $card-actions-font-size: 16px !default;
-  $card-actions_padding: 8px;
+$input-text-button-size: 32px !default;
+$input-text-floating-label-fontsize: 12px !default;
+$input-text-expandable-icon-top: 16px !default;
 
-  $card-title-text-font-weight: 300 !default;
-  $card-z-index: 1 !default;
+$input-text-error-font-size: 12px;
+$input-text-ripple-size: 32px;
 
-  /* Cover image */
-  $card-cover-image-height: 186px !default;
-  $card-background-image-url: '' !default;
 
+/* SWITCH */
 
-  /* BUTTON */
-  /**
-   *
-   * Dimensions
-   *
-   */
-  $button-min-width: 64px !default;
-  $button-height: 36px !default;
-  $button-padding: 8px !default;
-  $button-margin: 4px !default;
-  $button-border-radius: 2px !default;
+$switch-label-font-size: 16px !default;
+$switch-label-height: 24px !default;
+$switch-track-height: 14px !default;
+$switch-track-length: 36px !default;
+$switch-thumb-size: 20px !default;
+$switch-track-top: ($switch-label-height - $switch-track-height) / 2 !default;
+$switch-thumb-top: ($switch-label-height - $switch-thumb-size) / 2 !default;
+$switch-ripple-size: $switch-label-height * 2 !default;
+$switch-helper-size: 8px !default;
 
-  $button-fab-size: 56px !default;
-  $button-fab-size-mini: 40px !default;
-  $button-fab-font-size: 24px !default;
+/* SPINNER */
 
-  $button-icon-size: 32px !default;
-  $button-icon-size-mini: 24px !default;
+$spinner-size: 28px !default;
+$spinner-stroke-width: 3px !default;
 
+// Amount of circle the arc takes up.
+$spinner-arc-size: 270deg !default;
+// Time it takes to expand and contract arc.
+$spinner-arc-time: 1333ms !default;
+// How much the start location of the arc should rotate each time.
+$spinner-arc-start-rot: 216deg !default;
 
-  /* ANIMATION */
-  $animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
-  $animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
-  $animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
+$spinner-duration: 360 * $spinner-arc-time / (
+    strip-units($spinner-arc-start-rot + (360deg - $spinner-arc-size))) !default;
 
-  $animation-curve-default: $animation-curve-fast-out-slow-in !default;
 
+/* RADIO */
 
-  /* PROGRESS */
-  $bar-height: 4px !default;
+$radio-label-font-size: 16px !default;
+$radio-label-height: 24px !default;
+$radio-button-size: 16px !default;
+$radio-inner-margin: $radio-button-size / 4 !default;
+$radio-padding: 8px !default;
+$radio-top-offset: ($radio-label-height - $radio-button-size) / 2 !default;
+$radio-ripple-size: 42px !default;
+
+
+/* MENU */
+
+$menu-expand-duration: 0.3s !default;
+$menu-fade-duration: 0.2s !default;
+
+/* LIST */
 
-  /* BADGE */
-  $badge-size : 22px;
-  $badge-padding: 2px;
+$list-border: 8px !default;
+$list-min-height: 48px !default;
+$list-min-padding: 16px !default;
+$list-bottom-padding: 20px !default;
+$list-avatar-text-left-distance: 72px !default;
+$list-icon-text-left-distance: 72px !default;
 
-  /* SHADOWS */
+$list-avatar-size: 40px !default;
+$list-icon-size: 24px !default;
 
-  $shadow-key-umbra-opacity: 0.2;
-  $shadow-key-penumbra-opacity: 0.14;
-  $shadow-ambient-shadow-opacity: 0.12;
+$list-two-line-height: 72px !default;
+$list-three-line-height: 88px !default;
+
+/* LAYOUT */
+
+$layout-header-max-height: 1000px !default;
+
+$layout-drawer-narrow: 240px !default;
+$layout-drawer-wide: 456px !default;
+$layout-drawer-width: $layout-drawer-narrow !default;
+$layout-drawer-navigation-padding-top: 16px !default;
+
+$layout-header-icon-size: 32px !default;
+$layout-screen-size-threshold: 1024px !default;
+$layout-header-icon-margin: 24px !default;
+$layout-drawer-button-mobile-size: 32px !default;
+$layout-drawer-button-desktop-size: 48px !default;
+
+$layout-header-mobile-row-height: 56px !default;
+$layout-mobile-header-height: $layout-header-mobile-row-height !default;
+$layout-header-desktop-row-height: 64px !default;
+$layout-desktop-header-height: $layout-header-desktop-row-height !default;
+
+$layout-header-desktop-baseline: 80px !default;
+$layout-header-mobile-baseline: 72px !default;
+$layout-header-mobile-indent: 16px !default;
+$layout-header-desktop-indent: 40px !default;
+
+$layout-tab-font-size: 14px !default;
+$layout-tab-bar-height: 48px !default;
+$layout-tab-mobile-padding: 12px !default;
+$layout-tab-desktop-padding: 24px !default;
+$layout-tab-highlight-thickness: 2px !default;
+$layout-header-navigation-link-padding-vertical: 24px !default;
+
+/* ICON TOGGLE */
+
+$icon-toggle-size: 32px !default;
+$icon-toggle-font-size: 24px !default;
+$icon-toggle-ripple-size: 36px !default;
+
+/* FOOTER */
+
+/*mega-footer*/
+$footer-min-padding: 16px !default;
+$footer-padding-sides: 40px !default;
+$footer-heading-font-size: 14px !default;
+$footer-heading-line-height: (1.7 * $footer-heading-font-size) !default;
+$footer-btn-size: 36px  !default;
+
+/*mini-footer*/
+$padding: 16px !default;
+$footer-heading-font-size: 24px !default;
+$footer-heading-line-height: (1.5 * $footer-heading-font-size) !default;
+
+/* CHECKBOX */
+
+$checkbox-label-font-size: 16px !default;
+$checkbox-label-height: 24px !default;
+$checkbox-button-size: 16px !default;
+$checkbox-inner-margin: 2px !default;
+$checkbox-padding: 8px !default;
+$checkbox-top-offset:
+($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2 !default;
+$checkbox-ripple-size: $checkbox-label-height * 1.5 !default;
 
-  /* GRID */
+/* CARD */
 
-  $grid-desktop-columns: 12 !default;
-  $grid-desktop-gutter: 16px !default;
-  $grid-desktop-margin: 16px !default;
+/* Card dimensions */
+$card-width: 330px !default;
+$card-height: 200px !default;
+$card-font-size: 16px !default;
+$card-title-font-size: 24px !default;
+$card-subtitle-font-size: 14px !default;
+$card-horizontal-padding: 16px !default;
+$card-vertical-padding: 16px !default;
 
-  $grid-desktop-breakpoint: 840px !default;
+$card-title-perspective-origin-x: 165px !default;
+$card-title-perspective-origin-y: 56px !default;
 
-  $grid-tablet-columns: 8 !default;
-  $grid-tablet-gutter: $grid-desktop-gutter !default;
-  $grid-tablet-margin: $grid-desktop-margin !default;
+$card-title-transform-origin-x: 165px !default;
+$card-title-transform-origin-y: 56px !default;
 
-  $grid-tablet-breakpoint: 480px !default;
+$card-title-text-transform-origin-x: 149px !default;
+$card-title-text-transform-origin-y: 48px !default;
 
-  $grid-phone-columns: 4 !default;
-  $grid-phone-gutter: $grid-desktop-gutter !default;
-  $grid-phone-margin: $grid-desktop-margin !default;
+$card-supporting-text-font-size: 1rem !default;
+$card-supporting-text-line-height: 18px !default;
 
-  $grid-cell-default-columns: $grid-phone-columns !default;
+$card-actions-font-size: 16px !default;
+$card-actions_padding: 8px !default;
 
-  /* DATA TABLE */
+$card-title-text-font-weight: 300 !default;
+$card-z-index: 1 !default;
 
-  $data-table-dividers: 1px solid $data-table-divider-color;
+/* Cover image */
+$card-cover-image-height: 186px !default;
+$card-background-image-url: '' !default;
 
-  $data-table-row-height: 48px;
-  $data-table-last-row-height: 56px;
-  $data-table-header-height: 56px;
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+$button-min-width: 64px !default;
+$button-height: 36px !default;
+$button-padding: 16px !default;
+$button-margin: 4px !default;
+$button-border-radius: 2px !default;
 
-  $data-table-column-spacing: 36px;
-  $data-table-column-padding: $data-table-column-spacing / 2;
+$button-fab-size: 56px !default;
+$button-fab-size-mini: 40px !default;
+$button-fab-font-size: 24px !default;
 
-  $data-table-card-header-height: 64px;
-  $data-table-card-title-top: 20px;
-  $data-table-card-padding: 24px;
-  $data-table-button-padding-right: 16px;
-  $data-table-cell-top: $data-table-card-padding / 2;
-}
+$button-icon-size: 32px !default;
+$button-icon-size-mini: 24px !default;
+
+/* ANIMATION */
+$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
+$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
+
+$animation-curve-default: $animation-curve-fast-out-slow-in !default;
+
+/* PROGRESS */
+$bar-height: 4px !default;
+
+/* BADGE */
+$badge-font-size: 12px !default;
+$badge-color: unquote("rgb(#{$color-accent-contrast})") !default;
+$badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
+$badge-background: unquote("rgb(#{$color-accent})") !default;
+$badge-background-inverse: unquote("rgba(#{$color-accent-contrast},0.2)") !default;
+$badge-size : 22px !default;
+$badge-padding: 2px !default;
+$badge-overlap: 12px !default;
+
+/* SHADOWS */
+
+$shadow-key-umbra-opacity: 0.2 !default;
+$shadow-key-penumbra-opacity: 0.14 !default;
+$shadow-ambient-shadow-opacity: 0.12 !default;
+
+/* GRID */
+
+$grid-desktop-columns: 12 !default;
+$grid-desktop-gutter: 16px !default;
+$grid-desktop-margin: 16px !default;
+
+$grid-desktop-breakpoint: 840px !default;
+
+$grid-tablet-columns: 8 !default;
+$grid-tablet-gutter: $grid-desktop-gutter !default;
+$grid-tablet-margin: $grid-desktop-margin !default;
+
+$grid-tablet-breakpoint: 480px !default;
+
+$grid-phone-columns: 4 !default;
+$grid-phone-gutter: $grid-desktop-gutter !default;
+$grid-phone-margin: $grid-desktop-margin !default;
+
+$grid-cell-default-columns: $grid-phone-columns !default;
+$grid-max-columns: $grid-desktop-columns !default;
+
+/* DATA TABLE */
+
+$data-table-font-size: 13px !default;
+$data-table-header-font-size: 12px !default;
+$data-table-header-sort-icon-size: 16px !default;
+
+$data-table-header-color: rgba(#000, 0.54) !default;
+$data-table-header-sorted-color: rgba(#000, 0.87) !default;
+$data-table-header-sorted-icon-hover-color: rgba(#000, 0.26) !default;
+$data-table-divider-color: rgba(#000, 0.12) !default;
+
+$data-table-hover-color: #eeeeee !default;
+$data-table-selection-color: #e0e0e0 !default;
+
+$data-table-dividers: 1px solid $data-table-divider-color !default;
+
+$data-table-row-height: 48px !default;
+$data-table-last-row-height: 56px !default;
+$data-table-header-height: 56px !default;
+
+$data-table-column-spacing: 36px !default;
+$data-table-column-padding: $data-table-column-spacing / 2 !default;
+
+$data-table-card-header-height: 64px !default;
+$data-table-card-title-top: 20px !default;
+$data-table-card-padding: 24px !default;
+$data-table-button-padding-right: 16px !default;
+$data-table-cell-top: $data-table-card-padding / 2 !default;
+
+/* DIALOG */
+$dialog-content-color: $card-supporting-text-text-color;
+
+/* SNACKBAR */
+
+// Hard coded since the color is not present in any palette.
+$snackbar-background-color: #323232 !default;
+$snackbar-tablet-breakpoint: $grid-tablet-breakpoint;
+$snackbar-action-color: unquote("rgb(#{$color-accent})") !default;
+
+/* TOOLTIP */
+$tooltip-font-size: 10px !default;
+$tooltip-font-size-large: 14px !default;
+
+/* CHIP */
+$chip-bg-color: rgb(222, 222, 222) !default;
+$chip-bg-active-color: rgb(214, 214, 214) !default;
+$chip-height: 32px !default;
+$chip-font-size: 13px !default;

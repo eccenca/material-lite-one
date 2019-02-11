@@ -20,31 +20,33 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Material Design Lite</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
 
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
     <link rel="canonical" href="http://www.example.com/">
     -->
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.cyan-light_blue.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
     #view-source {
@@ -60,7 +62,7 @@
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-      <header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Home</span>
           <div class="mdl-layout-spacer"></div>
@@ -69,7 +71,7 @@
               <i class="material-icons">search</i>
             </label>
             <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search" />
+              <input class="mdl-textfield__input" type="text" id="search">
               <label class="mdl-textfield__label" for="search">Enter your query...</label>
             </div>
           </div>
@@ -90,7 +92,8 @@
             <span>hello@example.com</span>
             <div class="mdl-layout-spacer"></div>
             <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-              <i class="material-icons">arrow_drop_down</i>
+              <i class="material-icons" role="presentation">arrow_drop_down</i>
+              <span class="visuallyhidden">Accounts</span>
             </button>
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
               <li class="mdl-menu__item">hello@example.com</li>
@@ -100,17 +103,17 @@
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">home</i>Home</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">inbox</i>Inbox</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">delete</i>Trash</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">report</i>Spam</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i>Forums</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">flag</i>Updates</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">local_offer</i>Promos</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">shopping_cart</i>Purchases</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people</i>Social</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Inbox</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Trash</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Spam</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Forums</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Updates</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Promos</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Purchases</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a>
           <div class="mdl-layout-spacer"></div>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">help_outline</i></a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
@@ -135,10 +138,10 @@
           </div>
           <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
             <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
-              <use xlink:href="#chart"/>
+              <use xlink:href="#chart" />
             </svg>
             <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
-              <use xlink:href="#chart"/>
+              <use xlink:href="#chart" />
             </svg>
           </div>
           <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
@@ -160,25 +163,25 @@
                 <ul>
                   <li>
                     <label for="chkbox1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                      <input type="checkbox" id="chkbox1" class="mdl-checkbox__input" />
+                      <input type="checkbox" id="chkbox1" class="mdl-checkbox__input">
                       <span class="mdl-checkbox__label">Click per object</span>
                     </label>
                   </li>
                   <li>
                     <label for="chkbox2" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                      <input type="checkbox" id="chkbox2" class="mdl-checkbox__input" />
+                      <input type="checkbox" id="chkbox2" class="mdl-checkbox__input">
                       <span class="mdl-checkbox__label">Views per object</span>
                     </label>
                   </li>
                   <li>
                     <label for="chkbox3" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                      <input type="checkbox" id="chkbox3" class="mdl-checkbox__input" />
+                      <input type="checkbox" id="chkbox3" class="mdl-checkbox__input">
                       <span class="mdl-checkbox__label">Objects selected</span>
                     </label>
                   </li>
                   <li>
                     <label for="chkbox4" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                      <input type="checkbox" id="chkbox4" class="mdl-checkbox__input" />
+                      <input type="checkbox" id="chkbox4" class="mdl-checkbox__input">
                       <span class="mdl-checkbox__label">Objects viewed</span>
                     </label>
                   </li>
@@ -210,11 +213,11 @@
         <defs>
           <g id="chart">
             <g id="Gridlines">
-              <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="27.3" x2="468.3" y2="27.3"/>
-              <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="66.7" x2="468.3" y2="66.7"/>
-              <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="105.3" x2="468.3" y2="105.3"/>
-              <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="144.7" x2="468.3" y2="144.7"/>
-              <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="184.3" x2="468.3" y2="184.3"/>
+              <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="27.3" x2="468.3" y2="27.3" />
+              <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="66.7" x2="468.3" y2="66.7" />
+              <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="105.3" x2="468.3" y2="105.3" />
+              <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="144.7" x2="468.3" y2="144.7" />
+              <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="184.3" x2="468.3" y2="184.3" />
             </g>
             <g id="Numbers">
               <text transform="matrix(1 0 0 1 485 29.3333)" fill="#888888" font-family="'Roboto'" font-size="9">500</text>
@@ -241,7 +244,7 @@
           </g>
         </defs>
       </svg>
-      <a href="https://github.com/google/material-design-lite/blob/master/templates/dashboard/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
-    <script src="../../material.min.js"></script>
+      <a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/dashboard/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">View Source</a>
+    <script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>
   </body>
 </html>

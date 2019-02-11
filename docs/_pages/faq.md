@@ -15,18 +15,20 @@ include_prefix: ../
         <li><a href="#progressive-enhancement">Does MDL support progressive enhancement?</a></li>
         <li><a href="#browser-support">Which browsers does MDL support?</a></li>
         <li><a href="#polymer">Does MDL play nicely with Polymer?</a></li>
-        <li><a href="#bootstrap">Is MDL comparable to Twitter Bootstrap?</a></li>
+        <li><a href="#bootstrap">Is MDL comparable to Bootstrap?</a></li>
         <li><a href="#existing-implementations">How does it compare to existing Material CSS implementations?</a></li>
         <li><a href="#options-available">Should I use the minified, CDN or Sass versions of MDL?</a></li>
         <li><a href="#official-cdn">What service does the official CDN use?</a></li>
         <li><a href="#web-starter-kit">How does MDL relate to Web Starter Kit?</a></li>
         <li><a href="#mdl-in-production">Do any Google properties use MDL in production?</a></li>
+        <li><a href="#mdl-showcase">Is there a showcase available of sites using MDL?</a></li>
         <li><a href="#individual-components">Can I build or use individual MDL components (e.g a button)?</a></li>
         <li><a href="#report-an-issue">How do I report a problem with MDL?</a></li>
         <li><a href="#getting-help">Where can I get help with questions about using MDL?</a>
         <li><a href="#slide-decks">Are there any presentations or slide-decks available on MDL?</a></li>
         <li><a href="#new-components">Can I request or contribute components to MDL?</a></li>
         <li><a href="#alternate-preprocessor">Will MDL support non-Sass preprocessors?</a></li>
+        <li><a href="#issue-updates">How do I keep updated with issues I'm interested in?</a></li>
       </ul>
     </nav>
   </section>
@@ -65,7 +67,7 @@ Note: the MDL site itself attempts to use progressive enhancement where possible
 
 <h2 id="browser-support">Which browsers does MDL support?</h2>
 
-The complete MDL experience should work in the last two versions of all evergreen browsers, whilst we gracefully degrade to CSS-only in browsers like IE9 that don’t pass our [Cutting-the-mustard](https://github.com/google/material-design-lite/blob/master/src/mdlComponentHandler.js#L262) test.
+The complete MDL experience should work in the last two versions of all evergreen browsers, whilst we gracefully degrade to CSS-only in browsers like IE9 that don’t pass our [Cutting-the-mustard](https://github.com/google/material-design-lite/blob/9e6c6ec9237715bfa04b307f786e9073f943e6be/src/mdlComponentHandler.js#L333) test.
 
 Our [browser compatibility matrix](https://github.com/google/material-design-lite/#browser-support) has the most up to date information on the browsers we officially support. For components, at minimum we require support for [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) and [addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener), which can be [polyfilled](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills) as needed. Our Templates will work in IE10+, primarily due to our use of Flexbox.
 
@@ -73,7 +75,7 @@ The polyfills that we’re currently using for the MDL site to improve support i
 
 ```html
 <!--[if IE]>
-<script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.7/es5-shim.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.2.0/es5-shim.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
 <![endif]-->
@@ -103,11 +105,11 @@ The <a href="https://elements.polymer-project.org/browse?package=paper-elements"
 
 That said, MDL can be used alongside the Polymer element counterparts. Polymer uses the power of Web Components to encapsulate the designs used for those components. MDL does not affect the styling within custom components.
 
-<h2 id="bootstrap">Is MDL comparable to Twitter Bootstrap?</h2>
+<h2 id="bootstrap">Is MDL comparable to Bootstrap?</h2>
 
 *If we're using it instead of Bootstrap, can we expect the same level of component styling?*
 
-Material Design can replace many parts of Bootstrap. However, it does not intend to feature-match everything Bootstrap offers. Instead MDL intends to implement the components specified by the Material Design specification. This allows it to provide the most comprehensive and accurate solution available.  
+Material Design can replace many parts of Bootstrap. However, it does not intend to feature-match everything Bootstrap offers. Instead MDL intends to implement the components specified by the Material Design specification. This allows it to provide the most comprehensive and accurate solution available.
 
 <h2 id="existing-implementations">How does it compare to existing Material CSS implementations?</h2>
 
@@ -115,7 +117,7 @@ Material Design can replace many parts of Bootstrap. However, it does not intend
 
 We think the community does a great job offering their own take on how Material Design should be implemented for CSS libraries.
 
-That said, the large, diverse number of implementations available are often quite liberal with their interpretation of the spec (not their fault!) and their opinions don’t always reflect what the Material Design team would consider ‘correct’. MDL was developed in close collaboration with the Material Design and Chrome UX teams and undergoes regular reviews for spec compliance. When we run into an area of the spec that isn’t yet fully fleshed out, MDL is able to offer reviewed opinions on how these should be solved in a way that tries to stay true to Material Design.  
+That said, the large, diverse number of implementations available are often quite liberal with their interpretation of the spec (not their fault!) and their opinions don’t always reflect what the Material Design team would consider ‘correct’. MDL was developed in close collaboration with the Material Design and Chrome UX teams and undergoes regular reviews for spec compliance. When we run into an area of the spec that isn’t yet fully fleshed out, MDL is able to offer reviewed opinions on how these should be solved in a way that tries to stay true to Material Design.
 
 <h2 id="options-available">Should I use the minified, CDN or Sass versions of MDL?</h2>
 
@@ -153,6 +155,14 @@ The [Google Services](https://developers.google.com/mobile/add) site:
 
 and is being used by many other teams on upcoming projects, including Google Shopping.
 
+<h2 id="mdl-showcase">Is there a showcase available of sites using MDL?</h2>
+
+See the <a href="/showcase/">Showcase</a> for an early list of Google sites using MDL in production. 
+
+To request your site be added, please file a [new issue](https://github.com/Google/material-design-lite/issues/new?title=Site%20Showcase%20Request&body=Please%20include:%0A*%20Description%0A*%20Primary%20Link%0A*%20Screenshot) on our GitHub issue tracker. The issue should include a link, a description of the site and a suggested screenshot.
+
+We hope to add a properly polished showcase to the site in the near future.
+
 <h2 id="individual-components">Can I build or use individual MDL components (e.g a button)?</h2>
 
 For V1 of MDL we are focused on the use-case of folks who are likely to need a few different components on their page and will want to include most of the MDL library. This means that support and docs around just plucking single components on their own is minimal.
@@ -182,3 +192,9 @@ Sure! There may be components or templates you would like to see implemented in 
 *Stylus, Less, PostCSS, etc.*
 
 MDL is implemented using Sass and there are no current plans to change this. If you wish to maintain a port to another preprocessor, you are more than welcome to.
+
+<h2 id="issue-updates">How do I keep updated with issues I'm interested in?</h2>
+
+Watching the whole repository can introduce a lot of extra noise in your stream. To keep updated with just issues you are interested in you only need to subscribe to that issue. This is done on the issue page by clicking the "Subscribe" button in the right hand sidebar.
+
+<img alt="Subscribing to a single issue" src="../assets/faq/subscribe-single-issue.png">

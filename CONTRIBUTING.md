@@ -15,7 +15,7 @@ We'd love for you to contribute to our source code and to make Material Design L
 
 As contributors and maintainers of the Material Design Lite project, we pledge to respect everyone who contributes by posting issues, updating documentation, submitting pull requests, providing feedback in comments, and any other activities.
 
-Communication through any of Material Design Lite's channels (GitHub, StackOverflow, Google+, Twitter, etc.) must be constructive and never resort to personal attacks, trolling, public or private harrassment, insults, or other unprofessional conduct.
+Communication through any of Material Design Lite's channels (GitHub, StackOverflow, Google+, Twitter, etc.) must be constructive and never resort to personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.
 
 We promise to extend courtesy and respect to everyone involved in this project regardless of gender, gender identity, sexual orientation, disability, age, race, ethnicity, religion, or level of experience. We expect anyone contributing to the Material Design Lite project to do the same.
 
@@ -75,12 +75,10 @@ Please provide any URLs or screenshots of good examples of usage of this compone
 If you would like to implement a new feature then consider what kind of change it is:
 
 * **Major Changes** that you wish to contribute to the project should be discussed first on our
-[issue tracker][github] so that we can better coordinate our efforts, prevent
+[issue tracker][] so that we can better coordinate our efforts, prevent
 duplication of work, and help you to craft the change so that it is successfully accepted into the
 project.
 * **Small Changes** can be crafted and submitted to the [GitHub Repository][github] as a Pull Request.
-
- *[Website](http://www.getmdl.io/) related issues should be filed on the [Web Fundamentals](https://github.com/google/WebFundamentals/issues/new) issue tracker.*
 
 ## <a name="submit"></a> Submission Guidelines
 
@@ -142,7 +140,7 @@ Before you submit your pull request consider the following guidelines:
 * Follow our [Coding Rules](#rules).
 * Run the full Material Design Lite test suite (`gulp test`),
   and ensure that all tests pass.
-* Avoid checking in files that shouldn't be tracked (e.g `node_modules`, `gulp-cache`, `.tmp`, `.idea`). We recommend using a [global](#global-gitignore) gitignore for this.
+* Avoid checking in files that shouldn't be tracked (e.g `node_modules`, `gulp-cache`, `.tmp`, `.idea`). We recommend using a [global .gitignore](https://help.github.com/articles/ignoring-files/#create-a-global-gitignore) for this.
 * Make sure **not** to include a recompiled version of the files found in `/css` and `/js` as part of your PR. We will generate these automatically.
 * Commit your changes using a descriptive commit message.
 
@@ -222,9 +220,10 @@ changes to be accepted, the CLA must be signed. It's a quick process, we promise
 * For corporations we'll need you to
   [print, sign and one of scan+email, fax or mail the form][corporate-cla].
 
-*This guide was inspired by the AngularJS contribution guidelines*
+*This guide was inspired by the [AngularJS contribution guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md).*
 
 [github]: https://github.com/google/material-design-lite
+[issue tracker]: https://github.com/google/material-design-lite/issues
 [individual-cla]: http://code.google.com/legal/individual-cla-v1.0.html
 [corporate-cla]: http://code.google.com/legal/corporate-cla-v1.0.html
 [js-style-guide]: http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml

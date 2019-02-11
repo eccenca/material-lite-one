@@ -21,13 +21,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Android</title>
 
     <!-- Page styles -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
     #view-source {
@@ -56,7 +56,7 @@
               <i class="material-icons">search</i>
             </label>
             <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search-field" />
+              <input class="mdl-textfield__input" type="text" id="search-field">
             </div>
           </div>
           <!-- Navigation -->
@@ -71,6 +71,9 @@
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Play</a>
             </nav>
           </div>
+          <span class="android-mobile-title mdl-layout-title">
+            <img class="android-logo-image" src="images/android-logo.png">
+          </span>
           <button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
             <i class="material-icons">more_vert</i>
           </button>
@@ -80,9 +83,6 @@
             <li disabled class="mdl-menu__item">4.3 Jelly Bean</li>
             <li class="mdl-menu__item">Android History</li>
           </ul>
-          <span class="android-mobile-title mdl-layout-title">
-            <img class="android-logo-image" src="images/android-logo.png">
-          </span>
         </div>
       </div>
 
@@ -120,9 +120,9 @@
       <div class="android-content mdl-layout__content">
         <a name="top"></a>
         <div class="android-be-together-section mdl-typography--text-center">
-          <div class="android-font android-slogan">be together. not the same.</div>
-          <div class="android-font android-sub-slogan">welcome to android... be yourself. do your thing. see what's going on.</div>
-          <div class="android-font android-create-character">
+          <div class="logo-font android-slogan">be together. not the same.</div>
+          <div class="logo-font android-sub-slogan">welcome to android... be yourself. do your thing. see what's going on.</div>
+          <div class="logo-font android-create-character">
             <a href=""><img src="images/andy.png"> create your android character</a>
           </div>
 
@@ -323,9 +323,7 @@
         </footer>
       </div>
     </div>
-    <a href="https://github.com/google/material-design-lite/blob/master/templates/android-dot-com/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
-    <script src="../../material.min.js"></script>
-
-
+    <a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/android-dot-com/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
+    <script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>
   </body>
 </html>

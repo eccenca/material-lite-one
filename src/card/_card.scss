@@ -46,7 +46,6 @@
   color: $card-text-color;
   display: block;
   display: flex;
-  justify-content: stretch;
   line-height: normal;
   padding: $card-vertical-padding $card-horizontal-padding;
   perspective-origin: $card-title-perspective-origin-x $card-title-perspective-origin-y;
@@ -73,7 +72,7 @@
 
 .mdl-card__subtitle-text {
   font-size: $card-subtitle-font-size;
-  color: grey;
+  color: $card-subtitle-color;
   margin: 0;
 }
 
@@ -84,6 +83,10 @@
   overflow: hidden;
   padding: $card-vertical-padding $card-horizontal-padding;
   width: 90%;
+
+  &.mdl-card--border {
+    border-bottom: 1px solid $card-border-color;
+  }
 }
 
 .mdl-card__actions {
