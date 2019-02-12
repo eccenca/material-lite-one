@@ -55,18 +55,6 @@ const banner = ['/**',
 
 let codeFiles = '';
 
-const AUTOPREFIXER_BROWSERS = [
-  'ie >= 10',
-  'ie_mob >= 10',
-  'ff >= 30',
-  'chrome >= 34',
-  'safari >= 7',
-  'opera >= 23',
-  'ios >= 7',
-  'android >= 4.4',
-  'bb >= 10'
-];
-
 const SOURCES = [
   // Component handler
   'src/mdlComponentHandler.js',
@@ -135,7 +123,7 @@ gulp.task('styles:dev', () => {
     .pipe($.cssInlineImages({
       webRoot: 'src'
     }))
-    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe($.autoprefixer())
     .pipe(gulp.dest('.tmp/styles'))
     .pipe($.size({title: 'styles'}));
 });
@@ -151,7 +139,7 @@ gulp.task('styletemplates', () => {
       onError: console.error.bind(console, 'Sass error:')
     }))
     .pipe($.cssInlineImages({webRoot: 'src'}))
-    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe($.autoprefixer())
     .pipe(gulp.dest('.tmp'))
     // Concatenate Styles
     .pipe($.concat('material.css.template'))
@@ -176,7 +164,7 @@ gulp.task('styles', () => {
       onError: console.error.bind(console, 'Sass error:')
     }))
     .pipe($.cssInlineImages({webRoot: 'src'}))
-    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe($.autoprefixer())
     .pipe(gulp.dest('.tmp'))
     // Concatenate Styles
     .pipe($.concat('material.css'))
@@ -198,7 +186,7 @@ gulp.task('styles-grid', () => {
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
     }))
-    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe($.autoprefixer())
     .pipe(gulp.dest('.tmp'))
     // Concatenate Styles
     .pipe($.concat('material-grid.css'))
@@ -386,7 +374,7 @@ gulp.task('demoresources', () => {
       onError: console.error.bind(console, 'Sass error:')
     })))
     .pipe($.cssInlineImages({webRoot: 'src'}))
-    .pipe($.if('*.css', $.autoprefixer(AUTOPREFIXER_BROWSERS)))
+    .pipe($.if('*.css', $.autoprefixer()))
     .pipe(gulp.dest('dist/components'));
 });
 
@@ -477,7 +465,7 @@ gulp.task('assets', () => {
       progressive: true,
       interlaced: true
     })))
-    .pipe($.if(/\.css/i, $.autoprefixer(AUTOPREFIXER_BROWSERS)))
+    .pipe($.if(/\.css/i, $.autoprefixer()))
     .pipe($.if(/\.css/i, $.csso()))
     .pipe($.if(/\.js/i, $.uglify({
       preserveComments: 'some',
@@ -729,7 +717,7 @@ gulp.task('publish:release', ['_release'], () => {
 
 gulp.task('templates:styles', () => {
   return gulp.src('templates/**/*.css')
-    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe($.autoprefixer())
     // FIXME: This crashes. It's a bug in gulp-csso,
     // not csso itself.
     //.pipe($.csso())
