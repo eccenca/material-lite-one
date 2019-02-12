@@ -23,7 +23,7 @@
   font-size: $input-text-font-size;
   display: inline-block;
   box-sizing: border-box;
-  width: 300px;
+  width: $input-text-width;
   max-width: 100%;
   margin: 0;
   padding: $input-text-vertical-spacing 0;
@@ -50,7 +50,7 @@
   min-width: $input-text-button-size;
   width: auto;
   min-height: $input-text-button-size;
-  
+
   // Align icon button
   .mdl-button--icon {
     top: $input-text-expandable-icon-top;
@@ -215,7 +215,7 @@
     // in many browsers (Chrome, Firefox) only animates the inner visual style
     // of the input - the outer bounding box still 'jumps'.
     // Thus assume a sensible maximum, and animate to/from that value.
-    max-width: 600px;
+    max-width: 2 * $input-text-width;
   }
   .mdl-textfield__label:after {
     bottom: 0;
