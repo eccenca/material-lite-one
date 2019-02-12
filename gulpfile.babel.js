@@ -348,7 +348,7 @@ gulp.task('components', ['demos'], () => {
       property: 'page',
       remove: true
     }))
-    .pipe($.marked())
+    .pipe($.markdown())
     .pipe((() => {
       return through.obj((file, enc, cb) => {
         file.page.component = file.relative.split('/')[0];
@@ -357,6 +357,7 @@ gulp.task('components', ['demos'], () => {
     })())
     .pipe(applyTemplate())
     .pipe($.rename(path => path.basename = 'index'))
+    .pipe($.rename(path => path.extname = '.html'))
     .pipe(gulp.dest('dist/components'));
 });
 
@@ -403,7 +404,7 @@ gulp.task('demos', ['demoresources'], () => {
         property: 'page',
         remove: true
       }))
-      .pipe($.marked())
+      .pipe($.markdown())
       .pipe((() => {
         return through.obj((file, enc, cb) => {
           file.page.component = component;
@@ -426,7 +427,7 @@ gulp.task('pages', ['components'], () => {
       property: 'page',
       remove: true
     }))
-    .pipe($.marked())
+    .pipe($.markdown())
     .pipe(applyTemplate())
     .pipe($.replace('$$version$$', pkg.version))
     .pipe($.replace('$$hosted_libs_prefix$$', hostedLibsUrlPrefix))
@@ -441,6 +442,7 @@ gulp.task('pages', ['components'], () => {
         path.basename = 'index';
       }
     }))
+    .pipe($.rename(path => path.extname = '.html'))
     .pipe(gulp.dest('dist'));
 });
 
