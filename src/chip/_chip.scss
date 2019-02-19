@@ -21,13 +21,13 @@
     height: $chip-height;
     font-family: $preferred_font;
     line-height: $chip-height;
-    padding: 0 12px;
+    padding: 0 $chips-padding-horizontal;
     border: 0;
     border-radius: $chip-height / 2;
     background-color: $chip-bg-color;
     display: inline-block;
     color: $text-color-primary;
-    margin: 2px 0;
+    margin: $chips-margin-vertical 0;
     font-size: 0;
     white-space: nowrap;
 
@@ -38,8 +38,8 @@
     }
 
     &__action {
-        height: 24px;
-        width: 24px;
+        height: 3/8 * $chip-height;
+        width: 3/8 * $chip-height;
         background: transparent;
         opacity: 0.54;
         display: inline-block;
@@ -55,33 +55,33 @@
         outline: none;
         overflow: hidden;
     }
-    
+
     &__contact {
         height: $chip-height;
         width: $chip-height;
         border-radius: $chip-height / 2;
         display: inline-block;
         vertical-align: middle;
-        margin-right: 8px;
+        margin-right: 1/4 * $chip-height;
         overflow: hidden;
         text-align: center;
-        font-size: 18px;
-        line-height: 32px;
+        font-size: 18/32 * $chip-height;
+        line-height: $chip-height;
     }
-    
+
     &:focus {
         outline: 0;
         @include shadow-2dp();
     }
-    
+
     &:active {
         background-color: $chip-bg-active-color;
     }
-    
+
     &--deletable {
         padding-right: 4px;
     }
-    
+
     &--contact {
         padding-left: 0;
     }
