@@ -649,7 +649,9 @@ $data-table-button-padding-right: 16px !default;
 $data-table-cell-top: $data-table-card-padding / 2 !default;
 
 /* DIALOG */
-$dialog-content-color: $card-supporting-text-text-color;
+$dialog-content-color: $card-supporting-text-text-color !default;
+$dialog-title-font-size: 2.5rem !default;
+$dialog-padding: 24px !default;
 
 /* SNACKBAR */
 
