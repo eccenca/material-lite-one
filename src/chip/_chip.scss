@@ -38,8 +38,8 @@
     }
 
     &__action {
-        height: 3/8 * $chip-height;
-        width: 3/8 * $chip-height;
+        height: 24/32 * $chip-height;
+        width: 24/32 * $chip-height;
         background: transparent;
         opacity: 0.54;
         display: inline-block;
@@ -62,7 +62,7 @@
         border-radius: $chip-height / 2;
         display: inline-block;
         vertical-align: middle;
-        margin-right: 1/4 * $chip-height;
+        margin-right: 8/32 * $chip-height;
         overflow: hidden;
         text-align: center;
         font-size: 18/32 * $chip-height;
