@@ -120,6 +120,8 @@ $color-accent-contrast: $color-dark-contrast !default;
 
 $text-color-primary: unquote("rgba(#{$color-black}, 0.87)") !default;
 $text-link-color: unquote("rgb(#{$color-accent})") !default;
+$text-mark-background: #f4ff81 !default;
+$text-mark-color: inherit !default;
 
 // Define whether to target elements directly for typographic enhancements.
 // Turning this off means you need to use mdl-* classes more often.

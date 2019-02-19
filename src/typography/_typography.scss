@@ -90,7 +90,8 @@
   }
 
   mark {
-    background-color: #f4ff81;
+    background-color: $text-mark-background;
+    color: $text-mark-color;
   }
 
   dt {
@@ -99,7 +100,6 @@
 
   address {
     @include typo-caption;
-
     font-style: normal;
   }
 
