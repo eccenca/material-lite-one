@@ -329,58 +329,84 @@ $footer-underline-color: $footer-color !default;
 /* TYPOGRAPHY */
 $typo-display-4-font-size: 112px !default;
 $typo-display-4-line-height: 1 !default;
+$typo-display-4-letter-spacing: -0.04em !default;
+$typo-display-4-font-weight: 300 !default;
 
 $typo-display-3-font-size: 56px !default;
 $typo-display-3-line-height: 1.35 !default;
+$typo-display-3-letter-spacing: -0.02em !default;
+$typo-display-3-font-weight: 400 !default;
 $typo-display-3-margin-top: 24px !default;
 $typo-display-3-margin-bottom: 24px !default;
 
 $typo-display-2-font-size: 45px !default;
 $typo-display-2-line-height: 48px !default;
+$typo-display-2-font-weight: 400 !default;
 $typo-display-2-margin-top: 24px !default;
 $typo-display-2-margin-bottom: 24px !default;
 
 $typo-display-1-font-size: 34px !default;
 $typo-display-1-line-height: 40px !default;
+$typo-display-1-font-weight: 400 !default;
 $typo-display-1-margin-top: 24px !default;
 $typo-display-1-margin-bottom: 24px !default;
 
 $typo-headline-font-size: 24px !default;
 $typo-headline-line-height: 32px !default;
+$typo-headline-1-font-weight: 400 !default;
 $typo-headline-margin-top: 24px !default;
 $typo-headline-margin-bottom: 16px !default;
 
 $typo-title-font-size: 20px !default;
-$typo-title-line-height: 1 !default;
+$typo-title-line-height: 20px !default;
+$typo-title-letter-spacing: 0.02em !default;
+$typo-title-font-weight: 500 !default;
 $typo-title-margin-top: 24px !default;
 $typo-title-margin-bottom: 16px !default;
 
 $typo-subhead-font-size: 16px !default;
 $typo-subhead-line-height: 24px !default;
+$typo-subhead-letter-spacing: 0.04em !default;
+$typo-subhead-font-weight: 400 !default;
 $typo-subhead-margin-top: 24px !default;
 $typo-subhead-margin-bottom: 16px !default;
 
 $typo-subhead-2-font-size: 16px !default;
 $typo-subhead-2-line-height: 28px !default;
+$typo-subhead-2-letter-spacing: 0.04em !default;
+$typo-subhead-2-font-weight: 400 !default;
 
 $typo-body-base-font-size: 14px !default;
 $typo-body-base-line-height: 20px !default;
+$typo-body-base-font-weight: 400 !default;
 
 $typo-body-1-font-size: 14px !default;
 $typo-body-1-line-height: 24px !default;
+$typo-body-1-letter-spacing: 0 !default;
+$typo-body-1-font-weight: 400 !default;
 $typo-body-1-margin-bottom: 16px !default;
 
 $typo-caption-font-size: 12px !default;
 $typo-caption-line-height: 1 !default;
+$typo-caption-letter-spacing: 0 !default;
+$typo-caption-font-weight: 400 !default;
 
 $typo-blockquote-font-size: 24px !default;
 $typo-blockquote-line-height: 1.35 !default;
+$typo-blockquote-letter-spacing: 0.08em !default;
+$typo-blockquote-font-weight: 300 !default;
 
 $typo-menu-font-size: 14px !default;
 $typo-menu-line-height: 1 !default;
+$typo-menu-letter-spacing: 0 !default;
+$typo-menu-font-weight: 500 !default;
 
 $typo-button-font-size: 14px !default;
 $typo-button-line-height: 1 !default;
+$typo-button-letter-spacing: 0 !default;
+$typo-button-font-weight: 500 !default;
+
+$typo-icon-font-size: 24px !default;
 
 /* TEXTFIELD */
 

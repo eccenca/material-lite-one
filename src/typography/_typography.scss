@@ -21,7 +21,7 @@
   html, body {
     font-family: $performance_font;
     font-size: $typo-body-base-font-size;
-    font-weight: 400;
+    font-weight: $typo-body-base-font-weight;
     line-height: $typo-body-base-line-height;
   }
 
