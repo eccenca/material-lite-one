@@ -666,8 +666,12 @@ $snackbar-tablet-breakpoint: $grid-tablet-breakpoint;
 $snackbar-action-color: unquote("rgb(#{$color-accent})") !default;
 
 /* TOOLTIP */
+$tooltip-max-width: 170px !default;
+$tooltip-border-radius: 2px !default;
 $tooltip-font-size: 10px !default;
+$tooltip-padding: 8px !default;
 $tooltip-font-size-large: 14px !default;
+$tooltip-padding-large: 16px !default;
 
 /* CHIP */
 $chip-bg-color: rgb(222, 222, 222) !default;
