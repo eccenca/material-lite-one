@@ -391,13 +391,14 @@ $input-text-button-size: 32px !default;
 $input-text-floating-label-fontsize: 12px !default;
 $input-text-expandable-icon-top: 16px !default;
 
-$input-text-error-font-size: 12px;
-$input-text-ripple-size: 32px;
+$input-text-error-font-size: 12px !default;
+$input-text-ripple-size: 32px !default;
 
 
 /* SWITCH */
 
 $switch-label-font-size: 16px !default;
+$switch-label-margin: 16px !default;
 $switch-label-height: 24px !default;
 $switch-track-height: 14px !default;
 $switch-track-length: 36px !default;
