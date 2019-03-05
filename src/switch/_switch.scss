@@ -36,7 +36,7 @@
   overflow: visible;
 
   &.is-upgraded {
-    padding-left: $switch-track-length - 8px;
+    padding-left: $switch-track-length - $switch-track-height/2;
   }
 
   // avoids blue box around switch
@@ -153,7 +153,7 @@
   font-size: $switch-label-font-size;
   line-height: $switch-label-height;
   margin: 0;
-  left: 24px;
+  left: $switch-track-height/2 + $switch-label-margin;
 
   fieldset[disabled] .mdl-switch,
   .mdl-switch.is-disabled & {
