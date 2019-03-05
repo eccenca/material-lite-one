@@ -1,11 +1,17 @@
 {
-  "name": "material-design-lite",
+  "name": "@eccenca/material-lite-one",
   "version": "1.3.0",
-  "description": "Material Design Components in CSS, JS and HTML",
-  "private": true,
-  "license": "Apache-2.0",
-  "author": "Google",
-  "repository": "google/material-design-lite",
+  "description": "Maintained fork of Material Design Lite 1.x components, enhanced by a fully configurable stack of variables.",
+  "license": "(Apache-2.0 AND MIT)",
+  "author": "eccenca GmbH <opensource@eccenca.com> (http://eccenca.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eccenca/material-lite-one.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eccenca/material-lite-one/issues"
+  },
+  "homepage": "https://github.com/eccenca/material-lite-one#readme",
   "main": "dist/material.min.js",
   "devDependencies": {
     "acorn": "^4.0.3",
