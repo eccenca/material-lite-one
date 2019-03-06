@@ -21,17 +21,17 @@
   transform-origin: top center;
   z-index: 999;
   background: $tooltip-background-color;
-  border-radius: 2px;
+  border-radius: $tooltip-border-radius;
   color: $tooltip-text-color;
   display: inline-block;
   font-size: $tooltip-font-size;
   font-weight: 500;
-  line-height: 14px;
-  max-width: 170px;
+  line-height: $tooltip-font-size-large;
+  max-width: $tooltip-max-width;
   position: fixed;
   top: -500px;
   left: -500px;
-  padding: 8px;
+  padding: $tooltip-padding;
   text-align: center;
 }
 .mdl-tooltip.is-active {
@@ -39,9 +39,9 @@
 }
 
 .mdl-tooltip--large {
-  line-height: 14px;
+  line-height: $tooltip-font-size-large;
   font-size: $tooltip-font-size-large;
-  padding: 16px;
+  padding: $tooltip-padding-large;
 }
 
 @keyframes pulse {

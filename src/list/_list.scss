@@ -99,7 +99,7 @@
 
   & .mdl-list__item-primary-content {
     height: $list-two-line-height - $list-min-padding - $list-bottom-padding;
-    line-height: 20px;
+    line-height: 20/72 * $list-two-line-height;
     display: block;
 
     & .mdl-list__item-avatar{
@@ -120,7 +120,7 @@
 
     & .mdl-list__item-sub-title {
       @include typo-body-1();
-      line-height: 18px;
+      line-height: 18/72 * $list-two-line-height;
       color: $list-supporting-text-text-color;
       display: block;
       padding: 0;
@@ -133,7 +133,7 @@
 
   & .mdl-list__item-primary-content {
     height: $list-three-line-height - $list-min-padding - $list-bottom-padding;
-    line-height: 20px;
+    line-height: 20/88 * $list-three-line-height;
     display: block;
 
     & .mdl-list__item-avatar,
@@ -148,7 +148,7 @@
 
   & .mdl-list__item-text-body {
     @include typo-body-1();
-    line-height: 18px;
+    line-height: 18/88 * $list-three-line-height;
     height: $list-three-line-height - $list-min-padding - $list-bottom-padding;
     color: $list-supporting-text-text-color;
     display: block;

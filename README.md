@@ -1,3 +1,7 @@
+# Material Lite one
+
+Material Lite One is a maintained fork of the now abandoned [Material Design Lite 1.x components](https://github.com/google/material-design-lite/tree/mdl-1.x), enhanced by a fully configurable stack of variables.
+
 # Material Design Lite
 
 [![GitHub version](https://badge.fury.io/gh/google%2Fmaterial-design-lite.svg)](https://badge.fury.io/gh/google%2Fmaterial-design-lite)

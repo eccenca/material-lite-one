@@ -94,7 +94,7 @@
   line-height: normal;
   width: 100%;
   background-color: rgba(0,0,0,0);
-  padding: 8px;
+  padding: $card-actions_padding;
   box-sizing: border-box;
 
   &.mdl-card--border {
@@ -109,6 +109,6 @@
 
 .mdl-card__menu {
   position: absolute;
-  right: 16px;
-  top: 16px;
+  right: $card-vertical-padding;
+  top: $card-horizontal-padding;
 }
