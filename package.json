@@ -1,6 +1,6 @@
 {
   "name": "@eccenca/material-lite-one",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "description": "Maintained fork of Material Design Lite 1.x components, enhanced by a fully configurable stack of variables.",
   "license": "(Apache-2.0 AND MIT)",
   "author": "eccenca GmbH <opensource@eccenca.com> (http://eccenca.com)",
@@ -12,6 +12,9 @@
     "url": "https://github.com/eccenca/material-lite-one/issues"
   },
   "homepage": "https://github.com/eccenca/material-lite-one#readme",
+    "material design lite": [
+    "scss framework"
+  ],
   "main": "dist/material.min.js",
   "devDependencies": {
     "acorn": "^4.0.3",
